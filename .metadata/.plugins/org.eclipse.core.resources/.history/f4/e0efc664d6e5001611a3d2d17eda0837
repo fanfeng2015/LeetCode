@@ -1,0 +1,12 @@
+package lowestCommonAncestorOfBST;
+
+// LeetCode #235
+// Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
+
+// Assumption: 
+// 1. root is not null.
+// 2. p and q are guaranteed to be in the BST.
+
+public class LowestCommonAncestorOfBST {
+
+}
