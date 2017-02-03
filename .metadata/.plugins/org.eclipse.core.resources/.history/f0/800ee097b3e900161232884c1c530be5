@@ -1,0 +1,24 @@
+package repeatedSubstringPattern;
+
+public class RepeatedSubstringPattern {
+
+	public boolean repeatedSubstringPattern(String str) {
+		int n = str.length();
+		for (int i = n / 2; i >= 1; i--) { 
+			// i represents length of the substring
+			if (n % i == 0) {
+				int times = n / i;
+				String subString = str.substring(0, i);
+				for (int j = 1; j < times; j++) {
+					if (!subString.equals(str.substring(i * j, i * (j + 1)))) {
+						break;
+					}
+					if (j == times - 1) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+}
