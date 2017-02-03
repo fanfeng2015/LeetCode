@@ -1,0 +1,12 @@
+package pascalsTriangle2;
+
+// LeetCode #119
+// Given an index k, return the k-th row of the Pascal's triangle.
+
+public class PascalsTriangle2 {
+
+	public List<Integer> getRow(int rowIndex) {
+
+	}
+
+}
