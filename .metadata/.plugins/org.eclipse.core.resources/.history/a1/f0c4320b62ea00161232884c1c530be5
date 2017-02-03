@@ -1,0 +1,37 @@
+package stringToInteger;
+
+public class StringToInteger {
+
+	public int myAtoi(String str) {
+		int index = 0, result = 0;
+		// ignore leading spaces
+		while (index < str.length() && str.charAt(index) == ' ') {
+			index++;
+		}
+		if (index == str.length()) {
+			return 0;
+		}
+		// positive or negative?
+		int sign = 1;
+		if (str.charAt(index) == '+' || str.charAt(index) == '-') {
+			sign = str.charAt(index++) == '+' ? 1 : -1;
+		}
+		for (; index < str.length(); index++) {
+			if (Character.isDigit(str.charAt(index))) {
+				result = result * 10 + Character.getNumericValue(str.charAt(index));
+				// overflow or underflow?
+				if (sign == 1 && result > Integer.MAX_VALUE) {
+					result = Integer.MAX_VALUE;
+					break;
+				} else if (sign == -1 && result - Integer.MAX_VALUE > 1) {
+					result = Integer.MAX_VALUE + 1;
+					break;
+				}
+			} else {
+				break;
+			}
+		}
+		return (result == Integer.MAX_VALUE + 1) ? Integer.MIN_VALUE : (int) result * sign;
+	}
+
+}
