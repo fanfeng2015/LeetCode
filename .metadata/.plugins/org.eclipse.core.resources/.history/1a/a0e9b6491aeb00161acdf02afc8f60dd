@@ -1,0 +1,44 @@
+package nestedListWeightSum2;
+
+import java.util.List;
+
+// LeetCode #364
+// Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
+// Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+// Different from the previous question where weight is increasing from root to leaf, now the weight is defined from bottom up. i.e., the leaf level integers have weight 1, and the root level integers have the largest weight.
+
+public class NestedListWeightSum2 {
+
+	// Solution 1: get depth
+	public int depthSumInverse(List<NestedInteger> nestedList) {
+		int depth = findDepth(nestedList, new Integer[] { 1 }, new Integer[] { 1 });
+		return depthSumInverse(nestedList, new Integer[] { 0 }, new Integer[] { depth });
+	}
+
+	public int findDepth(List<NestedInteger> nestedList, Integer[] max, Integer[] depth) {
+		for (NestedInteger ni : nestedList) {
+			max[0] = Math.max(max[0], depth[0]);
+			if (!ni.isInteger()) {
+				findDepth(ni.getList(), max, new Integer[] { depth[0] + 1 });
+			}
+		}
+		return max[0];
+	}
+
+	public int depthSumInverse(List<NestedInteger> nestedList, Integer[] sum, Integer[] depth) {
+		for (NestedInteger ni : nestedList) {
+			if (ni.isInteger()) {
+				sum[0] += depth[0] * ni.getInteger();
+			} else {
+				depthSumInverse(ni.getList(), sum, new Integer[] { depth[0] - 1 });
+			}
+		}
+		return sum[0];
+	}
+	
+	// Time complexity is O(n).
+	// Space complexity is O(n), because of call-stack.
+	
+	// Solution 2: BFS
+
+}

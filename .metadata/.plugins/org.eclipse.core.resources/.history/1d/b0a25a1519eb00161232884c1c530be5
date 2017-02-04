@@ -1,0 +1,5 @@
+package nestedListWeightSum2;
+
+public interface NestedInteger {
+
+}
