@@ -12,11 +12,11 @@ import java.util.Map;
 // We can either make add() O(1) and find() O(n), by storing all numbers in a hash table, or
 // make add() O(n) and find() O(1) by storing all possible sums in a hash table.
 
-public class DesignGwoSum {
+public class DesignTwoSum {
 
 	Map<Integer, Integer> countMap;
 
-	public DesignGwoSum() {
+	public DesignTwoSum() {
 		this.countMap = new HashMap<Integer, Integer>();
 	}
 
