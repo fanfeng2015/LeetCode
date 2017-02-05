@@ -42,4 +42,7 @@ public class ShortestWordDistance2 {
 		}
 		return min;
 	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
