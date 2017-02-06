@@ -1,0 +1,19 @@
+package paintHouse;
+
+public class PaintHouse {
+
+	public int minCost(int[][] costs) {
+		if (costs == null || costs.length == 0) {
+			return 0;
+		}
+		int n = costs.length;
+		int[][] M = new int[n][3];
+		M[0] = costs[0];
+		for (int i = 1; i < n; i++) {
+			for (int j = 0; j < 3; j++) {
+				M[i][j] = costs[i][j] + Math.min(M[i - 1][(j + 1) % 3], M[i - 1][(j + 2) % 3]);
+			}
+		}
+		return Math.min(M[n - 1][0], Math.min(M[n - 1][1], M[n - 1][2]));
+	}
+}
