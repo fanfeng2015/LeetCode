@@ -1,0 +1,31 @@
+package mergeIntervals;
+
+// LeetCode #56
+// Given a collection of intervals, merge all overlapping intervals.
+
+public class MergeIntervals {
+
+	static class MyComparator<Interval> implements Comparator<Interval> {
+		@Override
+		public int compare(Interval i1, Interval i2) {
+			if (i1.start == i2.start) {
+				return 0;
+			}
+			return i1.start < i2.start ? -1 : 1;
+		}
+	}
+
+	public List<Interval> merge(List<Interval> intervals) {
+		List<Interval> result = new ArrayList<Inteval>();
+		Collections.sort(intervals, new MyComparator<Inteval>());
+		for (int i = 0; i < intervals.size(); i++) {
+			if (result.size() == 0) {
+				result.add(intervals.get(i));
+			} else if (intervals.get(i).start <= result.get(result.size() - 1).end) {
+				result.get(result.size() - 1).end = Math.max(result.get(result.size() - 1).end, intervals.get(i).end);
+			}
+		}
+		return result;
+	}
+
+}

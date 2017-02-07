@@ -1,0 +1,8 @@
+package mergeIntervals;
+
+// LeetCode #56
+// Given a collection of intervals, merge all overlapping intervals.
+
+public class MergeIntervals {
+
+}
