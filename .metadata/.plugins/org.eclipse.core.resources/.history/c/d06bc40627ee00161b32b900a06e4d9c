@@ -1,0 +1,23 @@
+package repeatedDNASequences;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// LeetCode #187
+// All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, 
+// for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify
+// repeated sequences within the DNA.
+
+// Write a function to find all the 10-letter-long sequences (substrings) that occur
+// more than once in a DNA molecule.
+
+public class RepeatedDNASequences {
+
+	// A --> 0, C --> 1, G --> 2, T --> 3
+	public List<String> findRepeatedDnaSequences(String s) {
+		List<String> result = new ArrayList<>();
+		Set<Integer> set = new HashSet<>();
+		return null;
+	}
+
+}
