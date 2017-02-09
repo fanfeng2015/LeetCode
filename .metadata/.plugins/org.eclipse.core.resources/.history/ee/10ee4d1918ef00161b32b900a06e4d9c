@@ -1,0 +1,12 @@
+package validPerfectSquare;
+
+public class ValidPerfectSquare {
+
+	// Solution 1: Try all possible integers up to n / 2, O(n)
+
+	// Solution 2:
+	public boolean isPerfectSquare(int num) {
+
+	}
+
+}
