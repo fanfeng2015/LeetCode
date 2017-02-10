@@ -46,5 +46,4 @@ public class ValidPerfectSquare {
 		}
 		return x * x == num;
 	}
-
 }

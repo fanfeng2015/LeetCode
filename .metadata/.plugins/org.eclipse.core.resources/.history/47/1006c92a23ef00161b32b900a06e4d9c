@@ -1,0 +1,26 @@
+package sqrt;
+
+// LeetCode #69
+
+// Implement int sqrt(int x).
+// Compute and return the square root of x.
+
+public class Sqrt {
+
+	// Solution 1
+	public int mySqrt(int x) {
+		int i = 1;
+		while (x >= 0) {
+			x -= i;
+			i += 2;
+		}
+		System.out.println(i);
+		return (i - 3) / 2;
+	}
+
+	// Time complexity is O(sqrt(x)).
+
+	// Solution 2
+	public int mySqrt2(int x) {
+
+}
