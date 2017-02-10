@@ -1,0 +1,38 @@
+package populatingNextRightPointerInEachNode2;
+
+// LeetCode #117: follow-up of #116.
+
+// What if the given tree could be any binary tree?
+// You may only use constant extra space.
+
+public class PopulatingNextRightPointerInEachNode2 {
+
+	public void connect(TreeLinkNode root) {
+		if (root == null) {
+			return;
+		}
+		TreeLinkNode prev = root, cur = null;
+		while (prev.left != null || prev.right != null) {
+			if (prev.left != null) {
+				cur = prev;
+				while (cur != null) {
+					cur.left.next = cur.right;
+					if (cur.next != null) {
+						cur.right.next = (cur.next.left == null) ? null : cur.next.right;
+					}
+					cur = cur.next;
+				}
+				// next level
+				prev = prev.left;
+			} else { // prev.right != null
+				cur = prev;
+				if (cur.next != null) {
+					cur.right.next = (cur.next.left == null) ? null : cur.next.right;
+				}
+				cur = cur.next;
+				prev = prev.right;
+			}
+		}
+	}
+
+}

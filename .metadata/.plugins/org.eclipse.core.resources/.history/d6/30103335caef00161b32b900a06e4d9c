@@ -1,0 +1,9 @@
+package populatingNextRightPointerInEachNode2;
+
+// LeetCode #117: follow-up of #116.
+
+// What if the given tree could be any binary tree? Would your previous solution still work?
+
+public class PopulatingNextRightPointerInEachNode2 {
+
+}
