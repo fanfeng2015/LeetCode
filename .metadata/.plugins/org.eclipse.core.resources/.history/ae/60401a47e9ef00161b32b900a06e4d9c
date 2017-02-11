@@ -1,0 +1,34 @@
+package implementStackUsingQueues;
+
+import java.util.LinkedList;
+
+// LeetCode #225
+
+// Implement stack using queues.
+
+public class ImplementStackUsingQueues {
+
+	LinkedList<Integer> queue = new LinkedList<>();
+
+	public ImplementStackUsingQueues() {
+		queue = new LinkedList<>();
+	}
+
+	public void push(int x) {
+		queue.offerLast(x);
+		
+	}
+
+	public int pop() {
+
+	}
+
+	public int top() {
+
+	}
+
+	public boolean empty() {
+
+	}
+
+}
