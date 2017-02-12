@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;3SumClosest&apos;" deleteContents="true" description="Delete resource &apos;3SumClosest&apos;" element1="/3SumClosest" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1486934532734"/>
+</session>

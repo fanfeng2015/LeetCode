@@ -1,0 +1,61 @@
+package threeSumClosest;
+
+import java.util.Arrays;
+
+// LeetCode #16
+
+// Given an array S of n integers, find three integers in S such that 
+// the sum is closest to a given number, target. 
+// Return the sum of the three integers. You may assume that each input 
+// would have exactly one solution.
+
+public class ThreeSumClosest {
+
+	public int threeSumClosest(int[] nums, int target) {
+		Arrays.sort(nums);
+		int min = Integer.MAX_VALUE;
+		int result = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (i > 0 && nums[i] == nums[i - 1]) {
+				continue;
+			}
+			int pairSum = twoSumClosest(nums, target - nums[i], i + 1, nums.length - 1);
+			int cur = nums[i] + pairSum;
+			if (cur == target) {
+				return cur;
+			} else if (Math.abs(cur - target) < min) {
+				min = Math.abs(cur - target);
+				result = cur;
+			}
+		}
+		return result;
+	}
+
+	private int twoSumClosest(int[] nums, int target, int left, int right) {
+		int min = Integer.MAX_VALUE;
+		int one = 0, two = 0;
+		while (left < right) {
+			if (Math.abs(nums[left] + nums[right] - target) < min) {
+				min = Math.abs(nums[left] + nums[right] - target);
+				one = nums[left];
+				two = nums[right];
+			}
+			if (nums[left] + nums[right] == target) {
+				return one + two;
+			} else if (nums[left] + nums[right] < target) {
+				left++;
+			} else {
+				right--;
+			}
+		}
+		return one + two;
+	}
+
+	public static void main(String[] args) {
+		ThreeSumClosest threeSumClosest = new ThreeSumClosest();
+		int[] nums = new int[] { -1, 2, 1, -4 };
+		int target = 1;
+		System.out.println(threeSumClosest.threeSumClosest(nums, target));
+	}
+
+}
