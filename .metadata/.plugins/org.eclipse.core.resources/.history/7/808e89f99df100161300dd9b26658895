@@ -7,6 +7,7 @@ package readNCharactersGivenReadFour;
 // it returns 3 if there is only 3 characters left in the file.
 
 // By using the read4 API, implement the function int read(char *buf, int n) that reads n characters from the file.
+
 // The read function will only be called once for each test case.
 
 public class ReadNCharactersGivenReadFour extends Read4 {
@@ -29,5 +30,5 @@ public class ReadNCharactersGivenReadFour extends Read4 {
 		return total;
 	}
 
-	// Don't really understand what this question is asking.
+	// Don't really understand what this question is asking. 
 }
