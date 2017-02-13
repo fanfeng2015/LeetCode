@@ -1,0 +1,32 @@
+package palindromePermutation;
+
+import java.util.HashMap;
+import java.util.Map;
+
+// LeetCode #266
+
+// Given a string, determine if a permutation of the string could form a palindrome.
+
+public class PalindromePermutation {
+
+	public boolean canPermutePalindrome(String s) {
+		Map<Character, Integer> map = new HashMap<>();
+		for (int i = 0; i < s.length(); i++) {
+			Integer count = map.get(s.charAt(i));
+			count = count == null ? 1 : count + 1;
+			map.put(s.charAt(i), count);
+		}
+		int count = 0;
+		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+			if (entry.getValue() % 2 == 0) {
+				continue;
+			} else if (count > 0) {
+				return false;
+			} else {
+				count++;
+			}
+		}
+		return true;
+	}
+
+}
