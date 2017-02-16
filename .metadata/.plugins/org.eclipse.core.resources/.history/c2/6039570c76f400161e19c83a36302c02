@@ -1,0 +1,47 @@
+package regularExpressionMatching;
+
+import java.util.Arrays;
+
+// LeetCode #10
+
+// Implement regular expression matching with support for '.' and '*'.
+// '.' Matches any single character.
+// '*' Matches zero or more of the preceding element.
+
+// The matching should cover the entire input string (not partial).
+
+public class RegularExpressionMatching {
+
+	// M[i][j]: whether s[0, ..., i - 1] can be matched by p[0, ..., j - 1]
+	public boolean isMatch(String s, String p) {
+		int m = s.length(), n = p.length();
+		boolean[][] M = new boolean[m + 1][n + 1];
+		M[0][0] = true;
+		// first row
+		for (int j = 1; j <= n; j++) {
+			// assumption: * is not the first character, and must follow some
+			// other character
+			if (p.charAt(j - 1) == '*' && M[0][j - 2]) {
+				M[0][j] = true;
+			}
+		}
+		// first column
+		for (int i = 1; i <= m; i++) {
+			M[i][0] = false;
+		}
+		for (int i = 1; i <= m; i++) {
+			for (int j = 1; j <= n; j++) {
+				if (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1)) {
+					M[i][j] = M[i - 1][j - 1];
+				} else if (p.charAt(j - 1) == '*') {
+					// assumption: * is not the first character, and must follow some
+					// other character					
+					M[i][j] = M[i][j - 2] || M[i][j - 1] || M[i - 1][j - 1];
+
+				}
+			}
+		}
+		return M[m][n];
+	}
+
+}

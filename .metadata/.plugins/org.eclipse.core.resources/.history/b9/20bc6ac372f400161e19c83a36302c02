@@ -1,0 +1,18 @@
+package regularExpressionMatching;
+
+// LeetCode #10
+
+// Implement regular expression matching with support for '.' and '*'.
+// '.' Matches any single character.
+// '*' Matches zero or more of the preceding element.
+
+// The matching should cover the entire input string (not partial).
+
+public class RegularExpressionMatching {
+
+	// M[i][j]: whether s[0, ..., i] can be matched by p[0, ..., j]
+	public boolean isMatch(String s, String p) {
+		boolean[][]
+	}
+
+}
