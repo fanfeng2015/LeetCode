@@ -1,0 +1,10 @@
+package maximumGap;
+
+// LeetCode #164
+
+// Given an unsorted array, find the maximum difference between the successive elements in its sorted form.
+// Try to solve it in linear time and linear space.
+
+public class MaximumGap {
+
+}
