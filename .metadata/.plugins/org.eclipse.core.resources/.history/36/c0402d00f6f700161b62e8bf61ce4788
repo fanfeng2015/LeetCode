@@ -1,0 +1,21 @@
+package theSkylineProblem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// LeetCode #218
+
+// https://leetcode.com/problems/the-skyline-problem/?tab=Description
+
+public class TheSkylineProblem {
+
+	public List<int[]> getSkyline(int[][] buildings) {
+		List<int[]> result = new ArrayList<>();
+		List<int[]> height = new ArrayList<>(); 
+		for (int[] building : buildings) {
+			height.add(new int[] { building[0], -building[2] });
+			height.add(new int[] { building[1], -building[2] });
+		}
+	}
+
+}
