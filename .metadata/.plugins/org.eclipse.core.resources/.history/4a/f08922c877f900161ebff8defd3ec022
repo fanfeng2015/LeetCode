@@ -1,0 +1,23 @@
+package courseSchedule2;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+// LeetCode #210
+
+public class CourseSchedule2 {
+
+	public int[] findOrder(int numCourses, int[][] prerequisites) {
+		int[] count = new int[numCourses];
+		List<List<Integer>> adjacentList = new ArrayList<>();
+		constructGraph(prerequisites, count, adjacentList);
+		return topologicalOrder(adjacentList);
+	}
+
+	private void constructGraph(int[][] prerequisites, int[] count, List<List<Integer>> adjacentList) {
+		
+	}
+
+}

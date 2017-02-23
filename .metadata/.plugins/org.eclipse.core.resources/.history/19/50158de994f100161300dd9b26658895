@@ -1,9 +1,0 @@
-package readNCharactersGivenReadFour;
-
-public class Read4 {
-
-	int read4(char[] buf) {
-
-	};
-
-}

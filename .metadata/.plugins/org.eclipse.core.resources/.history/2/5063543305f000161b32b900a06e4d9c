@@ -1,9 +1,0 @@
-package reverseWordsInAString;
-
-// LeetCode #151
-
-// Given an input string, reverse the string word by word.
-
-public class ReverseWordsInAString {
-
-}

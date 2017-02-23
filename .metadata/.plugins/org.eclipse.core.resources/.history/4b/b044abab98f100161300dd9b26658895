@@ -1,9 +1,0 @@
-package factorialTrailingZeros;
-
-// LeetCode #172
-
-// Given an integer n, return the number of trailing zeroes in n!.
-
-public class FactorialTrailingZeros {
-
-}
