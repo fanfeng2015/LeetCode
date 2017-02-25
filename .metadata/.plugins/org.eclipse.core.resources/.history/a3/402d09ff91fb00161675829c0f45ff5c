@@ -1,0 +1,34 @@
+package gameOfLife;
+
+// LeetCode #289
+
+public class GameOfLife {
+
+	int[][] directions = new int[][] { { -1, 0 }, { -1, 1 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, -1 },
+			{ -1, -1 } };
+
+	public void gameOfLife(int[][] board) {
+		int m = board.length, n = board[0].length;
+		int[][] M = copy(board);
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (board[i][j] == 0) {
+					for (int[] dir : directions) {
+						
+					}
+				}
+			}
+		}
+	}
+
+	private int[][] copy(int[][] board) {
+		int[][] result = new int[m][n];
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				result[i][j] = board[i][j];
+			}
+		}
+		return result;
+	}
+
+}

@@ -1,0 +1,11 @@
+package gameOfLife;
+
+// LeetCode #289
+
+public class GameOfLife {
+
+	public void gameOfLife(int[][] board) {
+
+	}
+
+}

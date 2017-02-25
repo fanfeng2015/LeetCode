@@ -1,0 +1,7 @@
+package gameOfLife;
+
+// LeetCode #289
+
+public class GameOfLife {
+
+}
