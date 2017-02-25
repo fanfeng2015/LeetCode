@@ -19,15 +19,15 @@ public class IntegerToEnglishWords {
 			return "Zero";
 		}
 		int index = 0;
-		StringBuilder sb = new StringBuilder();
+		String result = "";
 		while (num > 0) {
 			if (num % 1000 != 0) {
-				sb.insert(0, convert(num % 1000) + thousands[index] + " ");
+				result = convert(num % 1000) + thousands[index] + " " + result;
 			}
 			num /= 1000;
 			index++;
 		}
-		return sb.toString().trim();
+		return result.trim();
 	}
 
 	private String convert(int num) {
@@ -41,5 +41,4 @@ public class IntegerToEnglishWords {
 			return lessThanTwenty[num / 100] + " Hundred " + convert(num % 100);
 		}
 	}
-
 }
