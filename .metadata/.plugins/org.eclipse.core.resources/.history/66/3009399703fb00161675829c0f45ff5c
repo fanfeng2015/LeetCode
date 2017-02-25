@@ -1,0 +1,54 @@
+package integerToEnglishWords;
+
+// LeetCode #273
+
+// Convert a non-negative integer to its English words representation. 
+// Given input is guaranteed to be less than 2^31 - 1.
+
+public class IntegerToEnglishWords {
+
+	private String[] lessThanTwenty = new String[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+			"Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen",
+			"Nineteen" };
+	private String[] tens = new String[] { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy",
+			"Eighty", "Ninety" };
+	private final String[] thousands = { "", "Thousand", "Million", "Billion" };
+
+	public String numberToWords(int num) {
+		if (num == 0) {
+			return "Zero";
+		}
+		int index = 0;
+		StringBuilder sb = new StringBuilder();
+		while (num > 0) {
+			if (num % 1000 != 0) {
+				sb.insert(0, convert(num % 1000) + thousands[index] + " ");
+			}
+			num /= 1000;
+			index++;
+		}
+		return sb.toString();
+	}
+
+	private String convert(StringBuilder sb) {
+		int index = 0;
+		while (num > 0) {
+			int cur = num % 1000;
+			if (cur != 0) {
+				if (cur < 20) {
+					sb.append(lessThanTwenty[cur]).append(" ");
+				} else if (cur < 100) {
+					sb.append(tens[cur / 10]).append(" ");
+					convert(num % 10, sb);
+				} else {
+					sb.append(lessThanTwenty[cur / 100]).append(" Hundred");
+					convert(cur % 100, sb);
+				}
+			}
+			sb.append(thousands[index])
+			index++;
+			num /= 1000;
+		}
+	}
+
+}
