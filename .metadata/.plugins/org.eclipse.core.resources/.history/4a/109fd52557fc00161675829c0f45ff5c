@@ -1,0 +1,9 @@
+package guessNumberHigherOrLower;
+
+public class GuessGame {
+
+	int guess(int num) {
+
+	}
+
+}
