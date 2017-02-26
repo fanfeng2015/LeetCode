@@ -1,0 +1,13 @@
+package distinctSubsequences;
+
+// LeetCode #115
+
+// Given a string S and a string T, count the number of distinct subsequences of T in S.
+
+public class DistinctSubsequences {
+
+	public int numDistinct(String s, String t) {
+
+	}
+
+}
