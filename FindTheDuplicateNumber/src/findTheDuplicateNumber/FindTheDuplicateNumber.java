@@ -24,17 +24,16 @@ public class FindTheDuplicateNumber {
 	// cycle in a linked list: O(n) time, O(1) space.
 
 	public int findDuplicate(int[] nums) {
-		int n = nums.length;
-		int slow = n, fast = n;
+		int slow = 0, fast = 0;
 		do {
-			slow = nums[slow - 1];
-			fast = nums[fast - 1];
-			fast = nums[fast - 1];
+			slow = nums[slow];
+			fast = nums[fast];
+			fast = nums[fast];
 		} while (slow != fast);
-		slow = n;
+		slow = 0;
 		while (slow != fast) {
-			slow = nums[slow - 1];
-			fast = nums[fast - 1];
+			slow = nums[slow];
+			fast = nums[fast];
 		}
 		return slow;
 	}
