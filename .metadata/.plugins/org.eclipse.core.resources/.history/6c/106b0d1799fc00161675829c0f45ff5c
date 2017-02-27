@@ -1,0 +1,47 @@
+package differentWaysToAddParentheses;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// LeetCode #241
+
+// Given a string of numbers and operators, return all possible results
+// from computing all the different possible ways to group numbers and operators. 
+// The valid operators are +, - and *.
+
+public class DifferentWaysToAddParentheses {
+
+	public List<Integer> diffWaysToCompute(String input) {
+		List<Integer> ret = new ArrayList<Integer>();
+		for (int i = 0; i < input.length(); i++) {
+			if (input.charAt(i) == '-' || input.charAt(i) == '*' || input.charAt(i) == '+') {
+				String left = input.substring(0, i);
+				String right = input.substring(i + 1);
+				List<Integer> leftValues = diffWaysToCompute(left);
+				List<Integer> rightValues = diffWaysToCompute(right);
+				for (Integer leftValue : leftValues) {
+					for (Integer rightValue : rightValues) {
+						int c = 0;
+						switch (input.charAt(i)) {
+						case '+':
+							c = leftValue + rightValue;
+							break;
+						case '-':
+							c = leftValue - rightValue;
+							break;
+						case '*':
+							c = leftValue * rightValue;
+							break;
+						}
+						ret.add(c);
+					}
+				}
+			}
+		}
+		if (ret.size() == 0) {
+			ret.add(Integer.valueOf(input));
+		}
+		return ret;
+	}
+
+}
