@@ -1,0 +1,22 @@
+package minimumDepthOfBinaryTree;
+
+// LeetCode #111
+
+// Given a binary tree, find its minimum depth.
+// The minimum depth is the number of nodes along the shortest path 
+// from the root node down to the nearest leaf node.
+
+public class MinimumDepthOfBinaryTree {
+
+	// Solution 1: DFS (recursion)
+	public int minDepth(TreeNode root) {
+		// base case
+		if (root == null) {
+			return 0;
+		}
+		int left = minDepth(root.left);
+		int right = minDepth(root.right);
+		return Math.min(Math.max(0, left), Math.max(0, right)) + 1;
+	}
+
+}
