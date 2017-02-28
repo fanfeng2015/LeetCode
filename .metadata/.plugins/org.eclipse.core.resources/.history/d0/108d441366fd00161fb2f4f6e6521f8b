@@ -9,7 +9,6 @@ import java.util.List;
 
 public class SparseMatrixMultiplication {
 
-	// Solution 1
 	public int[][] multiply(int[][] A, int[][] B) {
 		int rowA = A.length, colA = A[0].length;
 		int rowB = B.length, colB = B[0].length;
@@ -28,7 +27,6 @@ public class SparseMatrixMultiplication {
 		return result;
 	}
 
-	// Solution 2
 	static class Cell {
 		int col;
 		int val;
