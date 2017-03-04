@@ -1,9 +1,0 @@
-package theSkylineProblem;
-
-// LeetCode #218
-
-// https://leetcode.com/problems/the-skyline-problem/?tab=Description
-
-public class TheSkylineProblem {
-
-}
