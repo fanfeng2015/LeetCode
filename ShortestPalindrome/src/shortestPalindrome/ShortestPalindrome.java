@@ -7,7 +7,26 @@ package shortestPalindrome;
 
 public class ShortestPalindrome {
 
+	// Recursive solution
 	public String shortestPalindrome(String s) {
+		int j = 0;
+		for (int i = s.length() - 1; i >= 0; i--) {
+			if (s.charAt(j) == s.charAt(i)) {
+				j++;
+			}
+		}
+		if (j == s.length()) {
+			return s;
+		}
+		String suffix = s.substring(j);
+		return new StringBuilder(suffix).reverse().toString() + shortestPalindrome(s.substring(0, j)) + suffix;
+	}
+
+	// Time complexity is O(n), by Master Theorem.
+	// Space complexity is O(n), because of call-stack.
+
+	// Iterative solution: KMP
+	public String shortestPalindrome2(String s) {
 		String str = s + "#" + new StringBuilder(s).reverse().toString();
 		int[] kmp = KMP(str);
 		return new StringBuilder(s.substring(kmp[kmp.length - 1])).reverse().toString() + s;
