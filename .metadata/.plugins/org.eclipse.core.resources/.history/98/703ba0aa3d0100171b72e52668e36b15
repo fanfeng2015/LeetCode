@@ -1,0 +1,11 @@
+package firstBadVersion;
+
+// LeetCode #278
+
+public class FirstBadVersion extends VersionControl {
+
+	
+    public int firstBadVersion(int n) {
+        
+    }
+}
