@@ -12,13 +12,13 @@ public class ContainerWithMostWater {
 
 	// Solution 1: O(n^2) time, O(1) space
 	public int maxArea(int[] height) {
-		int min = Integer.MIN_VALUE;
+		int max = Integer.MIN_VALUE;
 		for (int i = 0; i < height.length - 1; i++) {
 			for (int j = i + 1; j < height.length; j++) {
-				min = Math.max(min, Math.min(height[i], height[j]) * (j - i));
+				max = Math.max(max, Math.min(height[i], height[j]) * (j - i));
 			}
 		}
-		return min;
+		return max;
 	}
 
 	// Solution 2:
