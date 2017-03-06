@@ -1,0 +1,11 @@
+package bullsAndCows;
+
+// LeetCode #299
+
+public class BullsAndCows {
+
+    public String getHint(String secret, String guess) {
+        
+    }
+	
+}

@@ -1,0 +1,36 @@
+package bullsAndCows;
+
+import java.util.HashMap;
+import java.util.Map;
+
+// LeetCode #299
+
+public class BullsAndCows {
+
+	public String getHint(String secret, String guess) {
+		Map<Character, Integer> countMap = new HashMap<>();
+		int bulls = 0, cows = 0;
+		int m = secret.length(), n = guess.length();
+		for (int i = 0; i < m; i++) {
+			if (i < n && secret.charAt(i) == guess.charAt(i)) {
+				bulls++;
+			} else {
+				Integer count = countMap.get(secret.charAt(i));
+				count = count == null ? 1 : count + 1;
+				countMap.put(secret.charAt(i), count);
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			if (i < m && guess.charAt(i) == secret.charAt(i)) {
+				continue;
+			}
+			Integer count = countMap.get(guess.charAt(i));
+			if (count != null && count > 0) {
+				cows++;
+				countMap.put(guess.charAt(i), count - 1);
+			}
+		}
+		return bulls + "A" + cows + "B";
+	}
+
+}
