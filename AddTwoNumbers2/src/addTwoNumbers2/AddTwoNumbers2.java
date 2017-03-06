@@ -2,7 +2,7 @@ package addTwoNumbers2;
 
 import java.util.LinkedList;
 
-// LeetCode #455
+// LeetCode #445
 
 // You are given two non-empty linked lists representing two non-negative integers. 
 // The most significant digit comes first and each of their nodes contain a single digit. 
