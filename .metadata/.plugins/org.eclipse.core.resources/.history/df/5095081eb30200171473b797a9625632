@@ -1,0 +1,27 @@
+package canIWin;
+
+import java.util.HashMap;
+
+public class CanIWin {
+
+	public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
+		if (desiredTotal <= 0) {
+			return true;
+		}
+		if (maxChoosableInteger * (maxChoosableInteger + 1) / 2 < desiredTotal) {
+			return false;
+		}
+		return canIWin(maxChoosableInteger, desiredTotal, 0, new HashMap<Integer, Boolean>());
+	}
+
+	private boolean canIWin(int maxChoosableInteger, int desiredTotal, int used, HashMap<Integer, Boolean> map) {
+		
+	}
+
+	public static void main(String[] args) {
+		char[] array = new char[] { ' ', ' ' };
+		String s = new String(array);
+		System.out.println(s.length());
+	}
+
+}

@@ -1,0 +1,20 @@
+package canIWin;
+
+public class CanIWin {
+
+	public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
+		if (desiredTotal <= 0) {
+			return true;
+		}
+		if (maxChoosableInteger * (maxChoosableInteger + 1) / 2 < desiredTotal) {
+			return false;
+		}
+	}
+
+	public static void main(String[] args) {
+		char[] array = new char[] { ' ', ' ' };
+		String s = new String(array);
+		System.out.println(s.length());
+	}
+
+}
