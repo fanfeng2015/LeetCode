@@ -52,4 +52,5 @@ public class InsertDeleteGetRandomO1 {
 		Random rand = new Random();
 		return list.get(rand.nextInt(list.size()));
 	}
+
 }
