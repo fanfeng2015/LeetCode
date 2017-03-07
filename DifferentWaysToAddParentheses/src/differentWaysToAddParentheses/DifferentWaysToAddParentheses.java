@@ -17,7 +17,7 @@ public class DifferentWaysToAddParentheses {
 	public List<Integer> diffWaysToCompute(String input) {
 		List<Integer> result = new ArrayList<Integer>();
 		for (int i = 0; i < input.length(); i++) {
-			if (input.charAt(i) == '-' || input.charAt(i) == '*' || input.charAt(i) == '+') {
+			if (input.charAt(i) == '+' || input.charAt(i) == '-' || input.charAt(i) == '*') {
 				String left = input.substring(0, i);
 				String right = input.substring(i + 1);
 				List<Integer> leftValues = diffWaysToCompute(left);

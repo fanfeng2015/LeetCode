@@ -35,4 +35,5 @@ public class DesignTwoSum {
 		}
 		return false;
 	}
+
 }

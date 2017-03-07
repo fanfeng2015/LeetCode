@@ -1447,3 +1447,14 @@ org.osgi.framework.BundleException: Unable to acquire the state change lock for 
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
 	at org.eclipse.ui.internal.Workbench$56.run(Workbench.java:2852)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.tcf 4 0 2017-03-06 20:35:24.606
+!MESSAGE Cannot get list of network interfaces
+!STACK 0
+java.net.SocketException: Can't assign requested address
+	at java.net.NetworkInterface.getAll(Native Method)
+	at java.net.NetworkInterface.getNetworkInterfaces(NetworkInterface.java:334)
+	at org.eclipse.tcf.internal.services.local.LocatorService.getSubNetList(LocatorService.java:635)
+	at org.eclipse.tcf.internal.services.local.LocatorService.getSubNetList(LocatorService.java:624)
+	at org.eclipse.tcf.internal.services.local.LocatorService.access$0(LocatorService.java:608)
+	at org.eclipse.tcf.internal.services.local.LocatorService$1.run(LocatorService.java:181)
