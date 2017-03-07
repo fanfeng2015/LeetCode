@@ -23,9 +23,8 @@ public class InsertInterval {
 			i++;
 		}
 		result.add(new Interval(lo, hi));
-		while (i < intervals.size()) {
+		while (i < intervals.size())
 			result.add(intervals.get(i++));
-		}
 		return result;
 	}
 

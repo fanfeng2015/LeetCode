@@ -15,7 +15,7 @@ public class InsertInterval {
 		int i = 0;
 		while (i < intervals.size() && intervals.get(i).end < newInterval.start) {
 			result.add(intervals.get(i++));
-		}
+		}}
 		int lo = newInterval.start, hi = newInterval.end;
 		while (i < intervals.size() && intervals.get(i).start <= newInterval.end) {
 			lo = Math.min(lo, intervals.get(i).start);
@@ -23,9 +23,8 @@ public class InsertInterval {
 			i++;
 		}
 		result.add(new Interval(lo, hi));
-		while (i < intervals.size()) {
+		while (i < intervals.size())
 			result.add(intervals.get(i++));
-		}
 		return result;
 	}
 
