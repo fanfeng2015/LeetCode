@@ -1,6 +1,6 @@
 package houseRobber3;
 
-// LeetCode 337
+// LeetCode #337
 
 // The thief has found himself a new place for his thievery again. 
 // There is only one entrance to this area, called the "root." 
