@@ -14,8 +14,7 @@ public class GasStation {
 	// Fact 1: If a car can not reach station B from station A, then it can not
 	// reach station B, from any station at [A, B).
 	// Fact 2: If the total number of gas is greater than the total number of
-	// cost,
-	// there must exist a solution.
+	// cost, there must exist a solution.
 
 	public int canCompleteCircuit(int[] gas, int[] cost) {
 		int start = 0, gasInTank = 0, sum = 0;
