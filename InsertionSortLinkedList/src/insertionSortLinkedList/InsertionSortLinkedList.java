@@ -23,6 +23,6 @@ public class InsertionSortLinkedList {
 		return dummy.next;
 	}
 
-	// Time complexity is O(n).
+	// Time complexity is O(n^2).
 	// Space complexity is O(1).
 }
