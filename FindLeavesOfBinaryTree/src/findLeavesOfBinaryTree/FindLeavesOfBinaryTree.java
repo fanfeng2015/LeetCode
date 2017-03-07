@@ -21,22 +21,18 @@ public class FindLeavesOfBinaryTree {
 		if (root == null) {
 			return -1;
 		}
-		if (root.left == null && root.right == null) { // leave node
-			if (result.size() == 0) {
-				result.add(new ArrayList<Integer>());
-			}
-			result.get(0).add(root.val);
-			return 1;
-		}
 		// recursive rule
 		int left = helper(root.left, result);
 		int right = helper(root.right, result);
 		int height = Math.max(left, right) + 1;
-		if (result.size() < height) {
+		if (result.size() < height + 1) {
 			result.add(new ArrayList<Integer>());
 		}
-		result.get(height - 1).add(root.val);
+		result.get(height).add(root.val);
 		return height;
 	}
 
+	// Time complexity is O(n).
+	// Space complexity is O(n), because of call-stack, ignoring space needed
+	// for output.
 }
