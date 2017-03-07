@@ -2,6 +2,11 @@ package kthSmallestInBST;
 
 import java.util.LinkedList;
 
+// LeetCode #230
+
+// Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
+// You may assume k is always valid, 1 ≤ k ≤ BST's total elements.
+
 public class KthSmallestInBST {
 
 	private int count = 0;
@@ -33,7 +38,6 @@ public class KthSmallestInBST {
 	// Solution 2: iterative in-order
 	public int kthSmallest2(TreeNode root, int k) {
 		LinkedList<TreeNode> stack = new LinkedList<>();
-		stack.offerLast(root);
 		TreeNode cur = root;
 		while (cur != null || stack.size() != 0) {
 			if (cur != null) {
