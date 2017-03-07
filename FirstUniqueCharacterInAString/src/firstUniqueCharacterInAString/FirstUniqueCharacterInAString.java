@@ -12,11 +12,8 @@ public class FirstUniqueCharacterInAString {
 		Map<Character, Integer> map = new HashMap<>();
 		for (int i = 0; i < s.length(); i++) {
 			Integer count = map.get(s.charAt(i));
-			if (count == null) {
-				map.put(s.charAt(i), 1);
-			} else {
-				map.put(s.charAt(i), count + 1);
-			}
+			count = count == null ? 1 : count + 1;
+			map.put(s.charAt(i), count);
 		}
 		for (int i = 0; i < s.length(); i++) {
 			if (map.get(s.charAt(i)) == 1) {
