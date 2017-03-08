@@ -15,7 +15,7 @@ public class LowestCommonAncestorOfBST {
 		return root;
 	}
 
-	// Time complexity is O(log(n)).
-	// Space complexity is O(log(n)).
-	// Notice that BST being unbalanced is not the worst case in this problem.
+	// Time complexity is O(n), when the BST is highly unbalanced, and p and q
+	// are far away from root.
+	// Space complexity is O(1).
 }
