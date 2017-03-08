@@ -157,7 +157,6 @@ INDEX VERSION 1.127 OT2+/Users/fanfeng/Documents/LeetCode/.metadata/.plugins/org
 1273074657.index
 2621782821.index
 3920648488.index
-2707760055.index
 749570949.index
 472130450.index
 2211827535.index
