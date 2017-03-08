@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class LongestAbsoluteFilePath {
 
-	// Assumption: neither directory name, not file name has \t in it.
+	// Assumption: neither directory name, nor file name has \t in it.
 	public int lengthLongestPath(String input) {
 		LinkedList<Integer> stack = new LinkedList<>();
 		stack.offerLast(0);
@@ -14,7 +14,8 @@ public class LongestAbsoluteFilePath {
 		for (String s : input.split("\n")) {
 			// \t is treated as a char, or as if it has length 1
 			int level = s.lastIndexOf("\t") + 1; // number of tabs
-			while (level + 1 < stack.size()) {
+			while (level + 1 < stack.size()) { // notice: it is a while loop
+				// another directory/file on a previous level
 				stack.pollLast();
 			}
 			int curLength = stack.peekLast() + s.length() - level + 1;
