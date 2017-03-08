@@ -1,0 +1,62 @@
+package candy;
+
+import java.util.Arrays;
+
+// LeetCode #135
+
+public class Candy {
+
+	// Solution 1
+	public int candy(int[] ratings) {
+		int[] nums = new int[ratings.length];
+		Arrays.fill(nums, 1);
+		for (int i = 1; i < ratings.length; i++) {
+			if (ratings[i] > ratings[i - 1]) {
+				nums[i] = nums[i - 1] + 1;
+			}
+		}
+		for (int i = ratings.length - 2; i >= 0; i--) {
+			if (ratings[i] > ratings[i + 1]) {
+				nums[i] = Math.max(nums[i], nums[i + 1] + 1);
+			}
+		}
+		int result = 0;
+		for (int num : nums) {
+			result += num;
+		}
+		return result;
+	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n).
+	
+	// Solution 2
+	public int candy2(int[] ratings) {
+	    int prev = 1, countDown = 0, total = 1;
+	    for (int i = 1; i < ratings.length; i++) {
+	        if (ratings[i] >= ratings[i - 1]) {
+	            if (countDown > 0) {
+	                total += countDown * (countDown + 1) / 2;   // progression part
+	                if (countDown >= prev) { // check if pre is tall enough
+	                    total += countDown - prev + 1;
+	                }
+	                prev = 1;    // when ascending and there is countDown, prev should be 1
+	                countDown = 0;
+	            }
+	            prev = ratings[i] == ratings[i - 1] ? 1 : prev + 1;   // when equals to previous one, set to 1. Else set to prev + 1
+	            total += prev;
+	        }
+	        else {
+	            countDown++;
+	        }
+	    }
+	    if (countDown > 0) {    // check if there is countDown in the end
+	        total += countDown * (countDown + 1) / 2;
+	        if (countDown >= prev) {
+	            total += countDown - prev + 1;
+	        }
+	    }
+	    return total;
+	}
+
+}

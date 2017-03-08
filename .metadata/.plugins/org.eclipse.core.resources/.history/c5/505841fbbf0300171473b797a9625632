@@ -1,0 +1,11 @@
+package candy;
+
+// LeetCode #135
+
+public class Candy {
+
+    public int candy(int[] ratings) {
+        
+    }
+	
+}
