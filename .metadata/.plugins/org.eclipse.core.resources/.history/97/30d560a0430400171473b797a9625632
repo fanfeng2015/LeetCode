@@ -1,0 +1,33 @@
+package countOfSmallerNumbersAfterSelf;
+
+import java.util.List;
+
+// LeetCode #315
+// LaiCode CountArray
+
+// You are given an integer array nums and you have to return a new counts array. 
+// The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i].
+
+public class CountOfSmallerNumbersAfterSelf {
+
+	static class Node {
+		int index, val, count = 0;
+
+		Node(int index, int val) {
+			this.index = index;
+			this.val = val;
+		}
+	}
+
+	public List<Integer> countSmaller(int[] nums) {
+		Node[] nodes = construct(nums);
+		for (int i = 0; i < nums.length; i++) {
+			nodes[i] = new Node(i, nums)
+		}
+	}
+	
+	private Node[] construct(int[] nums) {
+		Node[] result = new Node[nums.length];
+		for (int i = )
+	}
+}
