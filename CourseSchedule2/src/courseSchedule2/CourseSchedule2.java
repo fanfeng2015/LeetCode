@@ -48,5 +48,4 @@ public class CourseSchedule2 {
 		}
 		return index == n ? result : new int[] {};
 	}
-
 }
