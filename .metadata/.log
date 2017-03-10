@@ -1692,3 +1692,8 @@ Binding(COMMAND+SHIFT+F11,
 
 !ENTRY org.eclipse.core.net 1 0 2017-03-10 12:20:35.454
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.resources 2 2 2017-03-10 18:58:34.931
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2017-03-10 18:58:34.931
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
