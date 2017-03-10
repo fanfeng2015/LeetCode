@@ -11,7 +11,7 @@ public class PalindromeNumber {
 			return false;
 		}
 		int reverse = 0;
-		while (x > reverse) { // optimization
+		while (x > reverse) {
 			reverse = reverse * 10 + x % 10;
 			x = x / 10;
 		}
