@@ -1,6 +1,7 @@
 package pow;
 
 // LeetCode #50
+
 // Implement pow(x, n).
 
 public class Pow {
@@ -16,7 +17,6 @@ public class Pow {
 			x = 1 / x;
 			n = -n;
 		}
-		System.out.println(x + ", " + n);
 		return (n % 2 == 0) ? myPow(x * x, n / 2) : x * myPow(x * x, n / 2);
 	}
 
