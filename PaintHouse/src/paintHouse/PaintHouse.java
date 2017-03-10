@@ -1,9 +1,11 @@
 package paintHouse;
 
 // LeetCode #256
+
 // There are a row of n houses, each house can be painted with one of the three colors: red, blue or green. 
 // The cost of painting each house with a certain color is different. 
 // You have to paint all the houses such that no two adjacent houses have the same color.
+// Find the minimum cost to paint all houses.
 
 public class PaintHouse {
 
@@ -26,4 +28,5 @@ public class PaintHouse {
 
 	// Time complexity is O(n * k).
 	// Space complexity is O(k).
+
 }
