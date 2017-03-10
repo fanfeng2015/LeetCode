@@ -3,7 +3,7 @@ package pascalsTriangle;
 import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #188
+// LeetCode #118
 // Given numRows, generate the first numRows of Pascal's triangle.
 
 public class PascalsTriangle {
