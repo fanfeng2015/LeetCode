@@ -24,24 +24,23 @@ public class PalindromePairs {
 		}
 		for (int i = 0; i < words.length; i++) {
 			for (int j = 0; j <= words[i].length(); j++) {
-				String firstHalf = words[i].substring(0, j);
-				String secondHalf = words[i].substring(j);
-				if (isPalindrome(firstHalf)) {
-					String reverseSecondHalf = new StringBuilder(secondHalf).reverse().toString();
-					if (map.containsKey(reverseSecondHalf) && map.get(reverseSecondHalf) != i) {
+				String left = words[i].substring(0, j);
+				String right = words[i].substring(j);
+				if (isPalindrome(left)) {
+					String reverseRight = new StringBuilder(right).reverse().toString();
+					if (map.containsKey(reverseRight) && map.get(reverseRight) != i) {
 						List<Integer> cur = new ArrayList<>();
-						cur.add(map.get(reverseSecondHalf));
+						cur.add(map.get(reverseRight));
 						cur.add(i);
 						result.add(cur);
 					}
 				}
-				if (isPalindrome(secondHalf)) {
-					String reverseFirstHalf = new StringBuilder(firstHalf).reverse().toString();
-					if (map.containsKey(reverseFirstHalf) && map.get(reverseFirstHalf) != i
-							&& secondHalf.length() != 0) {
+				if (isPalindrome(right)) {
+					String reverseLeft = new StringBuilder(left).reverse().toString();
+					if (map.containsKey(reverseLeft) && map.get(reverseLeft) != i && right.length() != 0) {
 						List<Integer> cur = new ArrayList<>();
 						cur.add(i);
-						cur.add(map.get(reverseFirstHalf));
+						cur.add(map.get(reverseLeft));
 						result.add(cur);
 					}
 				}
