@@ -40,5 +40,4 @@ public class NumberOfIslands {
 
 	// Time complexity is O(m*n).
 	// Space complexity is O(m+n).
-
 }
