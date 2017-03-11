@@ -32,6 +32,7 @@ public class RepeatedDNASequences {
 		}
 		set.add(cur);
 		for (int i = 1; i <= s.length() - 10; i++) {
+			// (262143) in decimal = (111111111111111111) in binary
 			cur &= 262143; // remove the highest two bits
 			cur <<= 2;
 			cur |= map.get(s.charAt(i + 10 - 1));
