@@ -1,0 +1,21 @@
+package countCompleteTreeNodes;
+
+// LeetCode #222
+
+// Given a complete binary tree, count the number of nodes.
+
+public class CountCompleteTreeNodes {
+
+	public int countNodes(TreeNode root) {
+		int height = getHeight(root);
+	}
+
+	// because this is a complete binary tree, height can be computed
+	private int getHeight(TreeNode root) {
+		if (root == null) {
+			return 0;
+		}
+		return 1 + getHeight(root.left);
+	}
+
+}
