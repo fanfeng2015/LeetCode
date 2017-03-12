@@ -1,0 +1,44 @@
+package decodeWays;
+
+// LeetCode #91
+
+public class DecodeWays {
+
+	// M[i]: number of ways to encode substring from index i to n - 1
+	public int numDecodings(String s) {
+		if (s.length() == 0) {
+			return 0;
+		}
+		int[] M = new int[s.length() + 1];
+		M[s.length()] = 1;
+		for (int i = s.length() - 1; i >= 0; i--) {
+			int cur = Character.getNumericValue(s.charAt(i));
+			if (cur == 0) {
+				M[i] = 0;
+			} else if (i == s.length() - 1) {
+				M[i] = 1;
+			} else if (cur >= 3 || (cur == 2 && Character.getNumericValue(s.charAt(i + 1)) >= 7)) {
+				M[i] = M[i + 1];
+			} else {
+				M[i] = M[i + 1] + M[i + 2];
+			}
+		}
+		return M[0];
+	}
+
+	// private int numDecodings(char[] charArray, int left, int right) {
+	// // base case
+	// if (left == right) {
+	// return 1;
+	// }
+	// int val = 10 * Character.getNumericValue(charArray[left]) +
+	// Character.getNumericValue(charArray[left + 1]);
+	// if (left == right - 1) {
+	// return val <= 26 ? 2 : 1;
+	// }
+	// return val <= 26 ? 1 + numDecodings(charArray, left + 1, right) + 2 +
+	// numDecodings(charArray, left + 2, right)
+	// : 1 + numDecodings(charArray, left + 1, right);
+	// }
+
+}

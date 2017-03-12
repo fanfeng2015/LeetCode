@@ -1,0 +1,12 @@
+package decodeWays;
+
+// LeetCode #91
+
+public class DecodeWays {
+
+    
+    public int numDecodings(String s) {
+        
+    }
+	
+}

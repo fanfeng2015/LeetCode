@@ -1,0 +1,17 @@
+package decodeWays;
+
+// LeetCode #91
+
+public class DecodeWays {
+
+	public int numDecodings(String s) {
+		// base case
+		char[] charArray = s.toCharArray();
+		return numDecodings(charArray, 0, charArray.length - 1);
+	}
+
+	private int numDecodings(char[] charArray, int left, int right) {
+
+	}
+
+}
