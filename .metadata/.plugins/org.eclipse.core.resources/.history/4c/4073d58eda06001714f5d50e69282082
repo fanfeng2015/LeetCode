@@ -1,0 +1,15 @@
+package sudokuSolver;
+
+// LeetCode #37
+
+public class SudokuSolver {
+
+	public void solveSudoku(char[][] board) {
+		solve(board);
+	}
+	
+	private solve(char[][] board) {
+		
+	}
+
+}

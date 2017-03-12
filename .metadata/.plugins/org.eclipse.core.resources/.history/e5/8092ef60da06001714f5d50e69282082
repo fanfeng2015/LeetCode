@@ -1,0 +1,7 @@
+package sudokuSolver;
+
+// LeetCode #37
+
+public class SudokuSolver {
+
+}
