@@ -1,0 +1,18 @@
+package longestSubstringWithAtLeastKRepeatingCharacters;
+
+// LeetCode #395
+
+// Find the length of the longest substring T of a given string (consists of lower-case letters only) 
+// such that every character in T appears no less than k times.
+
+public class LongestSubstringWithAtLeastKRepeatingCharacters {
+
+	public int longestSubstring(String s, int k) {
+		return longestSubstring(s, k, 0, s.length() - 1);
+	}
+	
+	private int longestSubstring(String s, int k, int left, int right) {
+		
+	}
+
+}
