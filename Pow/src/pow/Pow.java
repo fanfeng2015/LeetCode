@@ -22,4 +22,5 @@ public class Pow {
 
 	// Time complexity is O(n).
 	// Space complexity is O(n).
+
 }
