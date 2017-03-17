@@ -7,7 +7,7 @@ package shortestPalindrome;
 
 public class ShortestPalindrome {
 
-	// Recursive solution
+	// Recursive solution: proof for correctness?
 	public String shortestPalindrome(String s) {
 		int j = 0;
 		for (int i = s.length() - 1; i >= 0; i--) {
