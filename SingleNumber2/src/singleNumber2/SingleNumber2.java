@@ -7,12 +7,15 @@ package singleNumber2;
 public class SingleNumber2 {
 
 	public int singleNumber(int[] nums) {
-		int one = 0, two = 0;
+		// use two bits to count the total number of bits that are 1 (00, 01,
+		// 10), ones keep all first bits of them, twos keep all second bits of
+		// them
+		int ones = 0, twos = 0;
 		for (int i : nums) {
-			one = (one ^ i) & ~two;
-			two = (two ^ i) & ~one;
+			ones = (ones ^ i) & ~twos;
+			twos = (twos ^ i) & ~ones;
 		}
-		return one;
+		return ones;
 	}
 
 	// Time complexity is O(n).
