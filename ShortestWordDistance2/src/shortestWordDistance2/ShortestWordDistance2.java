@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 // LeetCode #244
+
 // This is a follow up of Shortest Word Distance. 
 // The only difference is now you are given the list of words and your method will be called repeatedly many times with different parameters. 
 // How would you optimize it?
