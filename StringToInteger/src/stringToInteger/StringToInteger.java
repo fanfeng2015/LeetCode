@@ -1,6 +1,7 @@
 package stringToInteger;
 
 // LeetCode #8
+
 // Implement atoi to convert a string to an integer.
 
 public class StringToInteger {
