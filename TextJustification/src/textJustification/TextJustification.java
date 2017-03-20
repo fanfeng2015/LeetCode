@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // LeetCode #68
+
 // Given an array of words and a length L, format the text such that each line has exactly L characters and is fully (left and right) justified.
 // You should pack your words in a greedy approach, that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary 
 // so that each line has exactly L characters.
@@ -24,7 +25,6 @@ public class TextJustification {
 	public List<String> fullJustify(String[] words, int maxWidth) {
 		List<String> result = new ArrayList<>();
 		int start = 0, end = 0;
-		;
 		while (start < words.length) {
 			int count = 0;
 			while (end < words.length && count + (end - start) + words[end].length() <= maxWidth) {
