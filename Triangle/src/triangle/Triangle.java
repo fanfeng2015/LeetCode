@@ -29,5 +29,6 @@ public class Triangle {
 
 	// Time complexity is O(n), where n is the total number of integers in the
 	// triangle.
-	// Space complexity is O(n).
+	// Space complexity is O(n), although one optimization is to use two
+	// rotating one-dimensional arrays.
 }
