@@ -1,6 +1,7 @@
 package validNumber;
 
 // LeetCode #65
+
 // Validate if a given string is numeric.
 
 public class ValidNumber {
