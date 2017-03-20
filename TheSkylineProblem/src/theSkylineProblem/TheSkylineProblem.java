@@ -8,8 +8,6 @@ import java.util.PriorityQueue;
 
 // LeetCode #218
 
-// https://leetcode.com/problems/the-skyline-problem/?tab=Description
-
 public class TheSkylineProblem {
 
 	public List<int[]> getSkyline(int[][] buildings) {
