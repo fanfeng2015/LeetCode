@@ -41,8 +41,9 @@ public class WordSearch {
 				visited[row + direction[0]][col + direction[1]] = true;
 				if (DFS(board, word, row + direction[0], col + direction[1], pos + 1, visited)) {
 					return true;
+				} else {
+					visited[row + direction[0]][col + direction[1]] = false;
 				}
-				visited[row + direction[0]][col + direction[1]] = false;
 			}
 		}
 		return false;
