@@ -1,0 +1,11 @@
+package fourSum2;
+
+// LeetCode #454
+
+public class FourSum2 {
+
+	public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
+
+	}
+
+}
