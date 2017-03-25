@@ -1,0 +1,72 @@
+package substringWithConcatenationOfAllWords;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+// LeetCode #30
+
+// You are given a string, s, and a list of words, words, 
+// that are all of the same length. 
+// Find all starting indices of substring(s) in s that is a 
+// concatenation of each word in words exactly once and without
+// any intervening characters.
+
+public class SubstringWithConcatenationOfAllWords {
+
+	public List<Integer> findSubstring(String s, String[] words) {
+		List<Integer> result = new ArrayList<>();
+		int m = s.length(), n = words.length, k = words[0].length();
+		if (m < n * k) {
+			return result;
+		}
+		// words could possibly contain duplicate words
+		Map<String, Integer> map = new HashMap<>();
+		for (String word : words) {
+			Integer count = map.get(word);
+			count = count == null ? 1 : count + 1;
+			map.put(word, count);
+		}
+		// sliding windows
+		int size = map.size(), total = 0;
+		for (int i = 0; i < n; i++) {
+			String str = s.substring(i * k, (i + 1) * k);
+			Integer count = map.get(str);
+			if (count != null) {
+				map.put(str, count - 1);
+				total = count == 1 ? total + 1 : total;
+			}
+		}
+		if (total == size) { // first sliding window
+			result.add(0);
+		}
+		int start = 0, end = n + 1;
+		for (; end < m / k; end++) {
+			String left = s.substring(start * k, (start + 1) * k);
+			Integer count = map.get(left);
+			if (count != null) {
+				map.put(left, count + 1);
+				total = count == 0 ? total - 1 : total;
+			}
+			String right = s.substring(end * k, (end + 1) * k);
+			count = map.get(right);
+			if (count != null) {
+				map.put(right, count - 1);
+				total = count == 1 ? total + 1 : total;
+			}
+			if (total == size) { // first sliding window
+				result.add((++start) * k);
+			}
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+		SubstringWithConcatenationOfAllWords substringWithConcatenationOfAllWords = new SubstringWithConcatenationOfAllWords();
+		String s = "barfoothefoobarman";
+		String[] words = new String[] { "foo", "bar" };
+		substringWithConcatenationOfAllWords.findSubstring(s, words);
+	}
+
+}
