@@ -4240,3 +4240,19 @@ Caused by: java.lang.ClassNotFoundException: org.objectteams.IBoundBase cannot b
 	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
 	... 55 more
+
+!ENTRY org.eclipse.tcf 4 0 2017-03-27 03:04:14.728
+!MESSAGE Cannot send datagram packet to /192.168.1.255
+!STACK 0
+java.io.IOException: Network is down
+	at java.net.PlainDatagramSocketImpl.send(Native Method)
+	at java.net.DatagramSocket.send(DatagramSocket.java:697)
+	at org.eclipse.tcf.internal.services.local.LocatorService.sendDatagramPacket(LocatorService.java:771)
+	at org.eclipse.tcf.internal.services.local.LocatorService.sendEmptyPacket(LocatorService.java:889)
+	at org.eclipse.tcf.internal.services.local.LocatorService.sendAll(LocatorService.java:899)
+	at org.eclipse.tcf.internal.services.local.LocatorService.refresh_timer(LocatorService.java:560)
+	at org.eclipse.tcf.internal.services.local.LocatorService.access$1(LocatorService.java:512)
+	at org.eclipse.tcf.internal.services.local.LocatorService$1$1.run(LocatorService.java:184)
+	at org.eclipse.tcf.protocol.Protocol$3.run(Protocol.java:219)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:95)
+	at java.lang.Thread.run(Thread.java:745)
