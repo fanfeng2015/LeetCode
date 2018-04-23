@@ -1,13 +1,13 @@
-package findMinimumInRotatedSortedArray;
+package findMinimumInRotatedSortedArray2;
 
-// LeetCode #153
+// LeetCode #154
 
 // Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 // Find the minimum element.
 
-// Assumption: You may assume no duplicate exists in the array.
+// Assumption: The array may contain duplicates.
 
-public class FindMinimumInRotatedSortedArray {
+public class FindMinimumInRotatedSortedArray2 {
 
 	public int findMin(int[] nums) {
 		int left = 0, right = nums.length - 1;
@@ -20,12 +20,13 @@ public class FindMinimumInRotatedSortedArray {
 				// array drops on the right
 				left = mid;
 			} else {
-				return nums[left];
+				right--;
 			}
 		}
 		return Math.min(nums[left], nums[right]);
 	}
 
-	// Time complexity is O(log(n)).
+	// Time complexity is O(n) in the worst case, when array is not rotated.
+	// Otherwise, time complexity is O(log(n)).
 	// Space complexity is O(1).
 }
