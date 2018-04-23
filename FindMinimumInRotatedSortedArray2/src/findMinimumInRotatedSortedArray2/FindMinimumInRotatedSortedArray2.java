@@ -30,3 +30,4 @@ public class FindMinimumInRotatedSortedArray2 {
 	// Otherwise, time complexity is O(log(n)).
 	// Space complexity is O(1).
 }
+
