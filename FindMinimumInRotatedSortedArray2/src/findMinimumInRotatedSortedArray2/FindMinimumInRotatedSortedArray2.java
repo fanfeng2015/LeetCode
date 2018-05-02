@@ -1,6 +1,6 @@
 package findMinimumInRotatedSortedArray2;
 
-// LeetCode #154
+// LeetCode #154 (Find Minimum in Rotated Sorted Array II).
 
 // Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 // Find the minimum element.
