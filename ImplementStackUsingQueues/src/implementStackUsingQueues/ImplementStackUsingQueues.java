@@ -2,7 +2,7 @@ package implementStackUsingQueues;
 
 import java.util.LinkedList;
 
-// LeetCode #225
+// LeetCode #225 (Implement Stack Using Queues).
 
 // Implement stack using queues.
 
@@ -35,10 +35,9 @@ public class ImplementStackUsingQueues {
 	}
 
 	// Time complexity is O(n) for push, and O(1) for pop and top.
-	// There is a trade-off between push and pop.
+	
 	// Another implementation would rearrange elements only when pop or top is
-	// called.
-	// That way, push is O(1), and pop and top is O(n).
+	// called. This way, push is O(1), and pop and top is O(n).
 
 	public void push2(int x) {
 		queue.offerLast(x);
@@ -61,5 +60,4 @@ public class ImplementStackUsingQueues {
 	public boolean empty2() {
 		return queue.size() == 0;
 	}
-
 }
