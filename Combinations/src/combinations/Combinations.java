@@ -3,7 +3,7 @@ package combinations;
 import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #77
+// LeetCode #77 (Combinations).
 
 // Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
 
@@ -17,7 +17,6 @@ public class Combinations {
 	}
 
 	private void DFS(List<Integer> cur, List<List<Integer>> result, int n, int k) {
-		// base case
 		if (cur.size() == k) {
 			result.add(new ArrayList<Integer>(cur));
 			return;
@@ -29,4 +28,6 @@ public class Combinations {
 		}
 	}
 	
+	// Time complexity is O(n^k).
+	// Space complexity is O(k).
 }
