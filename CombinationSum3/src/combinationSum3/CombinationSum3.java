@@ -18,25 +18,25 @@ public class CombinationSum3 {
 	
     public List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-        List<Integer> list = new ArrayList<>();
-        DFS(k, n, result, list, 1);
+        List<Integer> cur = new ArrayList<>();
+        DFS(k, n, result, cur, 1);
         return result;
     }
     
-    private void DFS(int k, int n, List<List<Integer>> result, List<Integer> list, int start) {
+    private void DFS(int k, int n, List<List<Integer>> result, List<Integer> cur, int start) {
         if (n < 0) { // optimization
             return;
         }
-        else if (n == 0 && list.size() == k) {
-            result.add(new ArrayList<Integer>(list));
+        else if (n == 0 && cur.size() == k) {
+            result.add(new ArrayList<Integer>(cur));
         }
         for (int i = start; i <= MAX; i++) {
-            if (list.size() >= k) { // optimization
+            if (cur.size() >= k) { // optimization
                 break;
             }
-            list.add(i);
-            DFS(k, n - i, result, list, i + 1);
-            list.remove(list.size() - 1);
+            cur.add(i);
+            DFS(k, n - i, result, cur, i + 1);
+            cur.remove(cur.size() - 1);
         }
     }
     
