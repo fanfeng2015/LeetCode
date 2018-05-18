@@ -21,15 +21,15 @@ public class CombinationSum2 {
 		return result;
 	}
 
-	private void DFS(List<List<Integer>> result, List<Integer> cur, int[] candidates, int target, int level) {
+	private void DFS(List<List<Integer>> result, List<Integer> cur, int[] candidates, int target, int start) {
 		if (target < 0) {
 			return;
 		} else if (target == 0) {
 			result.add(new ArrayList<Integer>(cur));
 			return;
 		}
-		for (int i = level; i < candidates.length; i++) {
-			if (i > level && candidates[i] == candidates[i - 1]) {
+		for (int i = start; i < candidates.length; i++) {
+			if (i > start && candidates[i] == candidates[i - 1]) {
 				continue;
 			}
 			cur.add(candidates[i]);
