@@ -14,7 +14,7 @@ public class CoinChange2 {
         M[0] = 1;
         for (int coin : coins) {
             for (int i = coin; i <= amount; i++) {
-                M[i] += M[i-coin];
+                M[i] += M[i - coin];
             }
         }
         return M[amount];
