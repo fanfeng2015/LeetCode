@@ -6,14 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// LeetCode #40
+// LeetCode #40 (Combination Sum II).
 
 // Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
 // Each number in C may only be used once in the combination.
 
 public class CombinationSum2 {
 
-	// Solution 1
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		List<Integer> cur = new ArrayList<>();
@@ -39,7 +38,9 @@ public class CombinationSum2 {
 		}
 	}
 
-	// Solution 2
+	// Time complexity is O(n^target).
+	// Space complexity is O(target).
+	
 	private int[] nums;
 	private int[] count;
 
@@ -92,4 +93,6 @@ public class CombinationSum2 {
 		result.add(r);
 	}
 
+	// Time complexity is O(target^n), ignoring time that add(...) takes.
+	// Space complexity is O(n).
 }
