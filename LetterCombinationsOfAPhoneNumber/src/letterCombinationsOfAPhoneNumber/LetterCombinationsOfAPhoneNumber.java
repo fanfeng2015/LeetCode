@@ -3,7 +3,7 @@ package letterCombinationsOfAPhoneNumber;
 import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #17
+// LeetCode #17 (Letter Combinations of a Phone Number).
 
 // Given a digit string, return all possible letter combinations that the number could represent.
 
@@ -32,4 +32,5 @@ public class LetterCombinationsOfAPhoneNumber {
 			sb.deleteCharAt(sb.length() - 1);
 		}
 	}
+
 }
