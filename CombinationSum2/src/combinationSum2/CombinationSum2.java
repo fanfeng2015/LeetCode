@@ -17,11 +17,11 @@ public class CombinationSum2 {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		List<Integer> cur = new ArrayList<>();
 		Arrays.sort(candidates); // important
-		DFS(result, cur, candidates, target, 0);
+		DFS(candidates, target, cur, result, 0);
 		return result;
 	}
 
-	private void DFS(List<List<Integer>> result, List<Integer> cur, int[] candidates, int target, int start) {
+	private void DFS(int[] candidates, int target, List<Integer> cur, List<List<Integer>> result, int start) {
 		if (target < 0) {
 			return;
 		} else if (target == 0) {
@@ -33,7 +33,7 @@ public class CombinationSum2 {
 				continue;
 			}
 			cur.add(candidates[i]);
-			DFS(result, cur, candidates, target - candidates[i], i + 1);
+			DFS(candidates, target - candidates[i], cur, result, i + 1);
 			cur.remove(cur.size() - 1);
 		}
 	}
@@ -48,7 +48,7 @@ public class CombinationSum2 {
 		getCount(candidates);
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		List<Integer> cur = new ArrayList<>();
-		DFS2(result, cur, nums, count, target, 0);
+		DFS2(nums, count, target, cur, result, 0);
 		return result;
 	}
 
@@ -69,21 +69,21 @@ public class CombinationSum2 {
 		}
 	}
 
-	private void DFS2(List<List<Integer>> result, List<Integer> cur, int[] nums, int[] count, int target, int level) {
+	private void DFS2(int[] nums, int[] count, int target, List<Integer> cur, List<List<Integer>> result, int level) {
 		if (level == nums.length) {
 			if (target == 0) {
-				add(result, cur, nums);
+				add(nums, cur, result);
 			}
 			return;
 		}
 		for (int i = 0; i <= Math.min(target / nums[level], count[level]); i++) {
 			cur.add(i);
-			DFS2(result, cur, nums, count, target - i * nums[level], level + 1);
+			DFS2(nums, count, target - i * nums[level], cur, result, level + 1);
 			cur.remove(cur.size() - 1);
 		}
 	}
 
-	private void add(List<List<Integer>> result, List<Integer> cur, int[] candidates) {
+	private void add(int[] candidates, List<Integer> cur, List<List<Integer>> result) {
 		List<Integer> r = new ArrayList<>();
 		for (int i = 0; i < cur.size(); i++) {
 			for (int j = 0; j < cur.get(i); j++) {
