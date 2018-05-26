@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-// LeetCode #345
+// LeetCode #345 (Reverse Vowels of a String).
 
 // Write a function that takes a string as input and reverse only the vowels of a string.
 
