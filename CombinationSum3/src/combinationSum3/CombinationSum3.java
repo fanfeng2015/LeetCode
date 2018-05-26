@@ -19,11 +19,11 @@ public class CombinationSum3 {
     public List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         List<Integer> cur = new ArrayList<>();
-        DFS(k, n, result, cur, 1);
+        DFS(k, n, cur, result, 1);
         return result;
     }
     
-    private void DFS(int k, int n, List<List<Integer>> result, List<Integer> cur, int start) {
+    private void DFS(int k, int n, List<Integer> cur, List<List<Integer>> result, int start) {
         if (n < 0) { // optimization
             return;
         }
@@ -35,7 +35,7 @@ public class CombinationSum3 {
                 break;
             }
             cur.add(i);
-            DFS(k, n - i, result, cur, i + 1);
+            DFS(k, n - i, cur, result, i + 1);
             cur.remove(cur.size() - 1);
         }
     }
