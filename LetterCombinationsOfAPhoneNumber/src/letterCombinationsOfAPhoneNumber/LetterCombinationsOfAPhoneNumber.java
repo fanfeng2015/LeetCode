@@ -33,4 +33,6 @@ public class LetterCombinationsOfAPhoneNumber {
 		}
 	}
 
+	// Time complexity is O(4^n).
+	// Space complexioty is O(n).
 }
