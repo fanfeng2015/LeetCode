@@ -17,18 +17,18 @@ public class LetterCombinationsOfAPhoneNumber {
 			return result;
 		}
 		StringBuilder sb = new StringBuilder();
-		DFS(digits, result, 0, sb);
+		DFS(digits, sb, result, 0);
 		return result;
 	}
 
-	private void DFS(String digits, List<String> result, int level, StringBuilder sb) {
+	private void DFS(String digits, StringBuilder sb, List<String> result, int level) {
 		if (level == digits.length()) {
 			result.add(sb.toString());
 			return;
 		}
 		for (int i = 0; i < buttons[Character.getNumericValue(digits.charAt(level))].length(); i++) {
 			sb.append(buttons[Character.getNumericValue(digits.charAt(level))].charAt(i));
-			DFS(digits, result, level + 1, sb);
+			DFS(digits, sb, result, level + 1);
 			sb.deleteCharAt(sb.length() - 1);
 		}
 	}
