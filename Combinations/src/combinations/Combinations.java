@@ -22,6 +22,9 @@ public class Combinations {
 			return;
 		}
 		for (int i = cur.size() == 0 ? 1 : cur.get(cur.size() - 1) + 1; i <= n; i++) {
+			if (cur.size() == k) { // optimization
+				break;
+			}
 			cur.add(i);
 			DFS(n, k, cur, result);
 			cur.remove(cur.size() - 1);
