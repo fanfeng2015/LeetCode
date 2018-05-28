@@ -65,6 +65,6 @@ public class WordBreak2 {
 	}
 	
 	// Let m be the length of String s, and n be the size of the dictionary.
-	// Time complexity is O(m^3 + n^m).
-	// Space complexity is O(m + n).
+	// Time complexity is O(n + m^3 + n^m) = O(m^3 + n^m).
+	// Space complexity is O(n + m).
 }
