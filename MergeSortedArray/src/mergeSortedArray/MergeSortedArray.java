@@ -1,6 +1,6 @@
 package mergeSortedArray;
 
-// LeetCode #88
+// LeetCode #88 (Merge Sorted Array).
 
 // Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
 // You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold 
@@ -19,7 +19,7 @@ public class MergeSortedArray {
 				nums1[index--] = nums2[two--];
 			}
 		}
-		// one == m + n || two == n
+		// one < 0 || two < 0
 		while (two >= 0) {
 			nums1[index--] = nums2[two--];
 		}
