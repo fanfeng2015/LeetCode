@@ -18,7 +18,7 @@ public class PathSum3 {
 
 	public int pathSum(TreeNode root, int sum) {
 		Map<Integer, Integer> prefixSumMap = new HashMap<>();
-		prefixSumMap.put(0, 1);
+		prefixSumMap.put(0, 0);
 		pathSum(root, sum, 0, prefixSumMap);
 		return count;
 	}
