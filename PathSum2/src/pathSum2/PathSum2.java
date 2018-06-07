@@ -9,19 +9,18 @@ import java.util.List;
 
 public class PathSum2 {
 
-	private int soFar;
-
 	public List<List<Integer>> pathSum(TreeNode root, int sum) {
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		if (root == null) {
-			return result;
+			return new ArrayList<List<Integer>>();
 		}
+		int soFar = 0;
 		List<Integer> cur = new ArrayList<>();
-		DFS(root, result, cur, sum);
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		DFS(root, sum, soFar, cur, result);
 		return result;
 	}
 
-	private void DFS(TreeNode root, List<List<Integer>> result, List<Integer> cur, int target) {
+	private void DFS(TreeNode root, int target, int soFar, List<Integer> cur, List<List<Integer>> result) {
 		cur.add(root.val);
 		soFar += root.val;
 		// base case
@@ -32,10 +31,10 @@ public class PathSum2 {
 		}
 		// recursive rule
 		if (root.left != null) {
-			DFS(root.left, result, cur, target);
+			DFS(root.left, target, soFar, cur, result);
 		}
 		if (root.right != null) {
-			DFS(root.right, result, cur, target);
+			DFS(root.right, target, soFar, cur, result);
 		}
 		soFar -= cur.remove(cur.size() - 1);
 	}
