@@ -19,11 +19,11 @@ public class PathSum3 {
 	public int pathSum(TreeNode root, int sum) {
 		Map<Integer, Integer> prefixSumMap = new HashMap<>();
 		prefixSumMap.put(0, 0);
-		pathSum(root, sum, 0, prefixSumMap);
+		DFS(root, sum, 0, prefixSumMap);
 		return count;
 	}
 
-	private void pathSum(TreeNode root, int target, int prefixSum, Map<Integer, Integer> prefixSumMap) {
+	private void DFS(TreeNode root, int target, int prefixSum, Map<Integer, Integer> prefixSumMap) {
 		if (root == null) {
 			return;
 		}
@@ -36,8 +36,8 @@ public class PathSum3 {
 		frequency = (frequency == null) ? 1 : frequency + 1;
 		prefixSumMap.put(prefixSum, frequency);
 		// dfs
-		pathSum(root.left, target, prefixSum, prefixSumMap);
-		pathSum(root.right, target, prefixSum, prefixSumMap);
+		DFS(root.left, target, prefixSum, prefixSumMap);
+		DFS(root.right, target, prefixSum, prefixSumMap);
 		// decrement
 		prefixSumMap.put(prefixSum, prefixSumMap.get(prefixSum) - 1);
 	}
