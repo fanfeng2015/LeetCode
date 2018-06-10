@@ -1,6 +1,6 @@
 package shortestWordDistance3;
 
-// LeetCode #245
+// LeetCode #245 (Shortest Word Distance III).
 
 // This is a follow up of Shortest Word Distance. The only difference is now word1 could be the same as word2.
 // Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
@@ -14,11 +14,11 @@ public class ShortestWordDistance3 {
 		for (int i = 0; i < words.length; i++) {
 			if (words[i].equals(word1)) {
 				one = i;
-				min = (two == -1) ? min : Math.min(min, Math.abs(one - two));
+				min = (two == -1) ? min : Math.min(min, one - two);
 			}
 			if (words[i].equals(word2)) {
 				two = i;
-				min = (one == -1 || word1.equals(word2)) ? min : Math.min(min, Math.abs(one - two));
+				min = (one == -1 || word1.equals(word2)) ? min : Math.min(min, two - one);
 			}
 		}
 		return min;
