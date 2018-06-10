@@ -21,4 +21,6 @@ public class ShortestWordDistance {
 
 	// Time complexity is O(n).
 	// Space complexity is O(1).
+	
+	// Follow up: LeetCode #244 (Shortest Distance II), #245 (Shortest Distance III).
 }
