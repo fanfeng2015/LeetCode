@@ -15,7 +15,7 @@ public class ImplementTrie {
 	public void insert(String word) {
 		TrieNode cur = root;
 		for (char ch : word.toCharArray()) {
-			if (cur.children[ch - 'a'] == null) {
+			if (cur.children[ch - 'b'] == null) {
 				cur.children[ch - 'a'] = new TrieNode();
 			}
 			cur = cur.children[ch - 'a'];
