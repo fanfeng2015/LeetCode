@@ -49,5 +49,5 @@ public class WordSearch {
 	}
 
 	// Time complexity is O(m*n * 4^(m*n)).
-	// Space complexity is O(m*n)?
+	// Space complexity is O(m*n).
 }
