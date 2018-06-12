@@ -57,5 +57,11 @@ public class WordSearch2 {
 			}
 		}
 	}
-
+	
+	// Building the Trie...
+	// Time complexity is O(sum of string lengths).
+	// Space complexity is O(sum of string lengths).
+	
+	// Time complexity is O(m*n * 4^(m*n)).
+	// Space complexity is O(m*n).
 }
