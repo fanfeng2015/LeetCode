@@ -14,17 +14,7 @@ public class UnionFind {
 		n = grid[0].length;
 		parent = new int[m * n];
 		size = new int[m * n];
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
-				if (grid[i][j] == '1') {
-					int index = i * n + j;
-					parent[index] = index;
-					size[index] = 1;
-					count++;
-				}
-				
-			}
-		}
+		// Note: there is no '1' in the grid initially.
 	}
 	
 	public int count() {
