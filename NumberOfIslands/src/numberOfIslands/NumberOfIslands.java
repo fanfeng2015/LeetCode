@@ -11,6 +11,7 @@ package numberOfIslands;
 
 public class NumberOfIslands {
 
+	// Solution 1: DFS
 	public int numIslands(char[][] grid) {
 		if (grid == null || grid.length == 0) {
 			return 0;
@@ -41,5 +42,32 @@ public class NumberOfIslands {
 	}
 
 	// Time complexity is O(m*n).
-	// Space complexity is O(m+n).
+	// Space complexity is O(m*n), because of call-stack.
+	
+	// Solution 2: Union Find
+	private int[][] directions = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+	
+	public int numIslands2(char[][] grid) {
+		int m = grid.length, n = grid[0].length;
+		UnionFind unionFind = new UnionFind(grid);
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (grid[i][j] == '1') {
+					for (int[] direction : directions) {
+						int row = i + direction[0];
+						int col = j + direction[1];
+						if (row >= 0 && row < m && col >= 0 && col < n && grid[row][col] == '1') {
+							unionFind.union(i * n + j, row * n + col);
+						}
+					}
+				}
+			}
+		}
+		return unionFind.count();
+	}
+	
+	// Time complexity is O(m*n * log(m*n)).
+	// Space complexity is O(m*n), but on heap instead of stack.
+	
+	// Follow up: LeetCode #305 (Number of Islands II).
 }
