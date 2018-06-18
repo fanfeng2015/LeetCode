@@ -11,4 +11,29 @@ package maxAreaOfIsland;
 
 public class MaxAreaOfIsland {
 
+	public int maxAreaOfIsland(int[][] grid) {
+		int m = grid.length, n = grid[0].length;
+		int max = 0;
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (grid[i][j] == 1) {
+					max = Math.max(max, maxAreaOfIsland(grid, i, j));
+				}
+			}
+		}
+		return max;
+	}
+
+	private int maxAreaOfIsland(int[][] grid, int row, int col) {
+		int m = grid.length, n = grid[0].length;
+		if (row >= 0 && row < m && col >= 0 && col < n && grid[row][col] == 1) {
+			grid[row][col] = 0;
+			return 1 + maxAreaOfIsland(grid, row - 1, col) + maxAreaOfIsland(grid, row, col + 1)
+					+ maxAreaOfIsland(grid, row + 1, col) + maxAreaOfIsland(grid, row, col - 1);
+		}
+		return 0;
+	}
+	
+	// Time complexity is O(m*n).
+	// Space complexity is O(m*n).
 }
