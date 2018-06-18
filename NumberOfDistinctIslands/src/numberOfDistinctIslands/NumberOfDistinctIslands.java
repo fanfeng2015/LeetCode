@@ -14,20 +14,17 @@ import java.util.Set;
 
 public class NumberOfDistinctIslands {
 
-	private int startRow = 0, startCol = 0;
-	private int count = 0;
 	private int[][] directions = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
 	public int numDistinctIslands(int[][] grid) {
 		int m = grid.length, n = grid[0].length;
+		int count = 0;
 		Set<String> set = new HashSet<>();
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				if (grid[i][j] == 1) {
-					startRow = i;
-					startCol = j;
 					StringBuilder sb = new StringBuilder();
-					DFS(grid, i, j, sb);
+					DFS(grid, i, j, i, j, sb);
 					if (set.add(sb.toString())) {
 						count++;
 					}
@@ -37,13 +34,13 @@ public class NumberOfDistinctIslands {
 		return count;
 	}
 
-	private void DFS(int[][] grid, int i, int j, StringBuilder sb) {
+	private void DFS(int[][] grid, int startRow, int startCol, int curRow, int curCol, StringBuilder sb) {
 		int m = grid.length, n = grid[0].length;
-		if (i >= 0 && i < m && j >= 0 && j < n && grid[i][j] == 1) {
-			grid[i][j] = 0;
-			sb.append(i - startRow).append(j - startCol);
+		if (curRow >= 0 && curRow < m && curCol >= 0 && curCol < n && grid[curRow][curCol] == 1) {
+			grid[curRow][curCol] = 0;
+			sb.append(curRow - startRow).append(curCol - startCol);
 			for (int[] direction : directions) {
-				DFS(grid, i + direction[0], j + direction[1], sb);
+				DFS(grid, startRow, startCol, curRow + direction[0], curCol + direction[1], sb);
 			}
 		}
 	}
