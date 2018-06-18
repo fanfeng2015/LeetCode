@@ -27,7 +27,7 @@ public class NumberOfDistinctIslands {
 					startRow = i;
 					startCol = j;
 					StringBuilder sb = new StringBuilder();
-					DFS(grid, i, j, sb, set);
+					DFS(grid, i, j, sb);
 					if (set.add(sb.toString())) {
 						count++;
 					}
@@ -37,13 +37,13 @@ public class NumberOfDistinctIslands {
 		return count;
 	}
 
-	private void DFS(int[][] grid, int i, int j, StringBuilder sb, Set<String> set) {
+	private void DFS(int[][] grid, int i, int j, StringBuilder sb) {
 		int m = grid.length, n = grid[0].length;
 		if (i >= 0 && i < m && j >= 0 && j < n && grid[i][j] == 1) {
 			grid[i][j] = 0;
 			sb.append(i - startRow).append(j - startCol);
 			for (int[] direction : directions) {
-				DFS(grid, i + direction[0], j + direction[1], sb, set);
+				DFS(grid, i + direction[0], j + direction[1], sb);
 			}
 		}
 	}
