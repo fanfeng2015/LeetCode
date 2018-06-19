@@ -68,6 +68,7 @@ public class PlusOneLinkedList {
 				slow = slow.next;
 			}
 		}
+		
 		return dummy.val == 0 ? dummy.next : dummy;
 	}
 
