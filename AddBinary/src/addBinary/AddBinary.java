@@ -1,8 +1,10 @@
 package addBinary;
 
-// LeetCode #67
+// LeetCode #67 (Add Binary).
 
 // Given two binary strings, return their sum (also a binary string).
+
+// The input strings are both non-empty and contains only characters 1 or 0.
 
 public class AddBinary {
 
@@ -22,5 +24,5 @@ public class AddBinary {
 	}
 
 	// Time complexity is O(m+n).
-	// Space complexity is O(1), ignoring space needed for output.
+	// Space complexity is O(1).
 }
