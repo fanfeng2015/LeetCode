@@ -21,6 +21,7 @@ public class RotateList {
 			slow = slow.next;
 			fast = fast.next;
 		}
+
 		ListNode newHead = slow.next;
 		slow.next = null;
 		fast.next = head;
