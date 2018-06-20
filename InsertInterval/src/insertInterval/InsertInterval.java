@@ -3,7 +3,7 @@ package insertInterval;
 import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #57
+// LeetCode #57 (Insert Interval).
 
 // Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
 // You may assume that the intervals were initially sorted according to their start times.
@@ -29,8 +29,6 @@ public class InsertInterval {
 		return result;
 	}
 
-	// Time complexity is O(n), if the class of intervals is ArrayList<Interval>
-	// Space complexity is O(1), ignoring space needed for output.
-	// If we want to do it in-place, then remove() is needed. In that case, no
-	// matter ArrayList or LinkedList intervals is of, remove() costs O(n) time.
+	// Time complexity is O(n).
+	// Space complexity is O(1).
 }
