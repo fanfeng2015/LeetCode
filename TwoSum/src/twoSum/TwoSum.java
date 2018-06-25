@@ -3,7 +3,7 @@ package twoSum;
 import java.util.HashMap;
 import java.util.Map;
 
-// LeetCode #1 (Two Sum).
+// LeetCode #1 (Two Sum), #167 (Two Sum II - Input array is sorted).
 
 // Given an array of integers, return indices of the two numbers such that they 
 // add up to a specific target.
@@ -28,4 +28,30 @@ public class TwoSum {
 
 	// Time complexity is O(n).
 	// Space complexity is O(n).
+
+	// Follow up: LeetCode #167 (Two Sum II - Input array is sorted).
+	
+	// Given an array of integers that is already sorted in ascending order,
+	// find two numbers such that they add up to a specific target number.
+
+	// The function twoSum should return indices of the two numbers such that
+	// they add up to the target, where index 1 must be less than index 2.
+
+	// Note:
+	// 1. Your returned answers (both index 1 and index 2) are not zero-based.
+	// 2. You may assume that each input would have exactly one solution and 
+	// you may not use the same element twice.
+	public int[] twoSum2(int[] array, int target) {
+		int left = 0, right = array.length - 1;
+		while (left < right) {
+			if (array[left] + array[right] == target) {
+				return new int[] { left + 1, right + 1 };
+			} else if (array[left] + array[right] < target) {
+				left++;
+			} else {
+				right--;
+			}
+		}
+		return new int[] { -1, -1 };
+	}
 }
