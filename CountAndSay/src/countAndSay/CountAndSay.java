@@ -12,9 +12,9 @@ public class CountAndSay {
 		for (int i = 1; i < n; i++) {
 			String s = sb.toString();
 			sb.delete(0, sb.length());
-			int start = 0, cur = 1;
+			int start = 0, cur = 0;
 			while (cur < s.length()) {
-				while (cur < s.length() - 1 && s.charAt(cur) == s.charAt(start)) {
+				while (cur < s.length() && s.charAt(cur) == s.charAt(start)) {
 					cur++;
 				}
 				sb.append(cur - start).append(s.charAt(start));
