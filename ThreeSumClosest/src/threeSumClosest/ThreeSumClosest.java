@@ -2,23 +2,21 @@ package threeSumClosest;
 
 import java.util.Arrays;
 
-// LeetCode #16
+// LeetCode #16 (3 Sum Closest).
 
-// Given an array S of n integers, find three integers in S such that 
-// the sum is closest to a given number, target. 
-// Return the sum of the three integers. You may assume that each input 
-// would have exactly one solution.
+// Given an array S of n integers, find three integers in S such that the sum is the 
+// closest to a given target.
+
+// Return the sum of the three integers. You may assume that each input would have 
+// exactly one solution.
 
 public class ThreeSumClosest {
 
 	public int threeSumClosest(int[] nums, int target) {
-		int result = 0;
 		if (nums.length <= 3) {
-			for (int i : nums) {
-				result += i;
-			}
-			return result;
+			return Arrays.stream(nums).sum();
 		}
+		int result = 0;
 		Arrays.sort(nums);
 		result = nums[0] + nums[1] + nums[2];
 		for (int i = 0; i < nums.length - 2; i++) {
@@ -44,5 +42,5 @@ public class ThreeSumClosest {
 	}
 
 	// Time complexity is O(n^2).
-	// Space complexity is O(1), if sorting is in-place.
+	// Space complexity is O(log(n)), because of quick sort (for primitive types).
 }
