@@ -73,7 +73,7 @@ public class MyCalendar {
 	// Note: You might as well just keep the list(s) unsorted and do sequential
 	// search. Time/space complexity is the same.
 
-	// Solution 2: Red-black tree (TreeMap in Java) -- balanced binary search tree.
+	// Solution 2: Red-black tree (TreeMap in Java).
 	TreeMap<Integer, Integer> calendar = new TreeMap<>();
 
 	public boolean book2(int start, int end) {
