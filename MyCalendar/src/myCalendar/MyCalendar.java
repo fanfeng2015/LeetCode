@@ -23,55 +23,35 @@ import java.util.TreeMap;
 
 public class MyCalendar {
 
-	// Solution 1: Two sorted lists.
-	List<Integer> starts = new ArrayList<>();
-	List<Integer> ends = new ArrayList<>();
-
 	public MyCalendar() {
+
 	}
+
+	private static class Interval {
+		private int start;
+		private int end;
+
+		public Interval(int start, int end) {
+			this.start = start;
+			this.end = end;
+		}
+	}
+
+	// Solution 1: Brute force
+	List<Interval> intervals = new ArrayList<>();
 
 	public boolean book(int start, int end) {
-		int index = largestSmallerOrEqual(ends, start);
-		if (index == starts.size() - 1 || starts.get(index + 1) >= end) {
-			insertToCalendar(start, end, index + 1);
-			return true;
-		}
-		return false;
-	}
-
-	// Returns the index of the largest number smaller than or equal to target.
-	private int largestSmallerOrEqual(List<Integer> ends, int target) {
-		if (ends == null || ends.size() == 0) {
-			return -1;
-		}
-		int left = 0, right = ends.size() - 1;
-		while (left < right - 1) {
-			int mid = left + (right - left) / 2;
-			if (ends.get(mid) <= target) {
-				left = mid;
-			} else {
-				right = mid;
+		for (Interval interval : intervals) {
+			if (start < interval.end && end > interval.start) {
+				return false;
 			}
 		}
-		if (ends.get(right) <= target) {
-			return right;
-		} else if (ends.get(left) <= target) {
-			return left;
-		}
-		return -1;
-	}
-
-	// Insert start and end at index in starts and ends.
-	private void insertToCalendar(int start, int end, int index) {
-		starts.add(index, start);
-		ends.add(index, end);
+		intervals.add(new Interval(start, end));
+		return true;
 	}
 
 	// Time complexity is O(n)
 	// Space complexity is O(n).
-
-	// Note: You might as well just keep the list(s) unsorted and do sequential
-	// search. Time/space complexity is the same.
 
 	// Solution 2: Red-black tree (TreeMap in Java).
 	TreeMap<Integer, Integer> calendar = new TreeMap<>();
