@@ -19,8 +19,6 @@ import java.util.TreeMap;
 // For each call to the method MyCalendar.book, return true if the event can be added to the calendar successfully
 // without causing a triple booking. Otherwise, return false and do not add the event to the calendar.
 
-// Your class will be called like this: MyCalendar cal = new MyCalendar(); MyCalendar.book(start, end);
-
 public class MyCalendar2 {
 
 	public MyCalendar2() {
