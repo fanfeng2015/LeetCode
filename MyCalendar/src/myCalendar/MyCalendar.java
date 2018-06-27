@@ -19,8 +19,6 @@ import java.util.TreeMap;
 // successfully without causing a double booking. Otherwise, return false and do not add the event to 
 // the calendar.
 
-// Your class will be called like this: MyCalendar cal = new MyCalendar(); MyCalendar.book(start, end);
-
 public class MyCalendar {
 
 	public MyCalendar() {
