@@ -1,13 +1,13 @@
 package fourSum;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #18
+// LeetCode #18 (4 Sum).
 
-// Given an array S of n integers, are there elements a, b, c, and d in S 
-// such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.
+// Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? 
+// Find all unique quadruplets in the array which give the sum of target.
 
 // Note: The solution set must not contain duplicate quadruplets.
 
@@ -41,16 +41,13 @@ public class FourSum {
 	private void twoSum(int[] nums, int target, int begin, List<Integer> cur, List<List<Integer>> result) {
 		int left = begin, right = nums.length - 1;
 		while (left < right) {
-			if (left > begin && nums[left] == nums[left - 1]) {
-				left++;
-			} else if (right < nums.length - 1 && nums[right] == nums[right + 1]) {
-				right--;
-			} else if (nums[left] + nums[right] == target) {
-				List<Integer> answer = new ArrayList<Integer>(cur);
-				answer.add(nums[left++]);
-				answer.add(nums[right--]);
-				result.add(answer);
-			} else if (nums[left] + nums[right] < target) {
+			if (nums[left] + nums[right] == target && (left == begin || nums[left] != nums[left - 1])) {
+				cur.add(nums[left++]);
+				cur.add(nums[right--]);
+				result.add(new ArrayList<Integer>(cur));
+				cur.remove(cur.size() - 1);
+				cur.remove(cur.size() - 1);
+			} else if (nums[left] + nums[right] <= target) {
 				left++;
 			} else {
 				right--;
@@ -59,5 +56,5 @@ public class FourSum {
 	}
 
 	// Time complexity is O(n^3).
-	// Space complexity is O(1), ignoring space needed for output.
+	// Space complexity is O(1).
 }
