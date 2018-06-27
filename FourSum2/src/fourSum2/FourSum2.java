@@ -3,12 +3,13 @@ package fourSum2;
 import java.util.HashMap;
 import java.util.Map;
 
-// LeetCode #454
+// LeetCode #454 (4 Sum II).
 
-// Given four lists A, B, C, D of integer values, compute how many tuples 
-// (i, j, k, l) there are such that A[i] + B[j] + C[k] + D[l] is zero.
+// Given four lists A, B, C, D of integer values, compute how many tuples (i, j, k, l) there 
+// are such that A[i] + B[j] + C[k] + D[l] is zero.
 
 // To make problem a bit easier, all A, B, C, D have same length of N where 0 ≤ N ≤ 500. 
+
 // All integers are in the range of -2^28 to 2^28 - 1 and the result is guaranteed to be
 // at most 2^31 - 1.
 
@@ -33,6 +34,6 @@ public class FourSum2 {
 		return result;
 	}
 
-	// Time complexity is O(n^2).
-	// Space complexity is O(n^2).
+	// Time complexity is O(m*n).
+	// Space complexity is O(m*n).
 }
