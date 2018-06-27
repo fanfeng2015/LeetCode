@@ -1,5 +1,7 @@
 package myCalendar2;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -21,13 +23,46 @@ import java.util.TreeMap;
 
 public class MyCalendar2 {
 
-	TreeMap<Integer, Integer> calendar; // { t: count of intervals that start from t }
-
 	public MyCalendar2() {
-		calendar = new TreeMap<>();
+
 	}
 
+	private static class Interval {
+		private int start;
+		private int end;
+
+		public Interval(int start, int end) {
+			this.start = start;
+			this.end = end;
+		}
+	}
+
+	// Solution 1: Brute force
+	List<Interval> intervals = new ArrayList<>();
+	List<Interval> overlaps = new ArrayList<>();
+
 	public boolean book(int start, int end) {
+		for (Interval overlap : overlaps) {
+			if (start < overlap.end && end > overlap.start) {
+				return false;
+			}
+		}
+		for (Interval interval : intervals) {
+			if (start < interval.end && end > interval.start) {
+				overlaps.add(new Interval(Math.max(start, interval.start), Math.min(end, interval.end)));
+			}
+		}
+		intervals.add((new Interval(start, end)));
+		return true;
+	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n).
+
+	// Solution 2: Red-black tree (TreeMap in Java).
+	TreeMap<Integer, Integer> calendar = new TreeMap<>(); // { t: count of intervals that start from t }
+
+	public boolean book2(int start, int end) {
 		calendar.put(start, calendar.getOrDefault(start, 0) + 1);
 		calendar.put(end, calendar.getOrDefault(end, 0) - 1);
 		int overlap = 0;
