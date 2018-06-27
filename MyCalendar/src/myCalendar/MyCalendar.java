@@ -2,6 +2,7 @@ package myCalendar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 // LeetCode #729 (My Calendar I).
 
@@ -22,11 +23,11 @@ import java.util.List;
 
 public class MyCalendar {
 
-	List<Integer> starts, ends; // keep both sorted
+	// Solution 1: Two sorted lists.
+	List<Integer> starts = new ArrayList<>();
+	List<Integer> ends = new ArrayList<>();
 
 	public MyCalendar() {
-		starts = new ArrayList<>();
-		ends = new ArrayList<>();
 	}
 
 	public boolean book(int start, int end) {
@@ -67,5 +68,27 @@ public class MyCalendar {
 	}
 
 	// Time complexity is O(n)
+	// Space complexity is O(n).
+
+	// Note: You might as well just keep the list(s) unsorted and do sequential
+	// search. Time/space complexity is the same.
+
+	// Solution 2: Red-black tree (TreeMap in Java) -- balanced binary search tree.
+	TreeMap<Integer, Integer> calendar = new TreeMap<>();
+
+	public boolean book2(int start, int end) {
+		Integer floorKey = calendar.floorKey(start); // the greatest key <= start
+		if (floorKey != null && start < calendar.get(floorKey)) {
+			return false;
+		}
+		Integer ceilingKey = calendar.ceilingKey(start); // the least key >= start
+		if (ceilingKey != null && end > ceilingKey) {
+			return false;
+		}
+		calendar.put(start, end);
+		return true;
+	}
+
+	// Time complexity is O(log(n)).
 	// Space complexity is O(n).
 }
