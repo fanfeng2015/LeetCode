@@ -1,6 +1,6 @@
 package validNumber;
 
-// LeetCode #65
+// LeetCode #65 (Valid Number).
 
 // Validate if a given string is numeric.
 
@@ -24,7 +24,8 @@ public class ValidNumber {
 				}
 				e = true;
 				numberAfterE = false;
-			} else if (s.charAt(i) == '-' || s.charAt(i) == '+') {
+			} else if (s.charAt(i) == '+' || s.charAt(i) == '-') {
+				// the previous char must be e
 				if (i != 0 && s.charAt(i - 1) != 'e') {
 					return false;
 				}
@@ -37,5 +38,4 @@ public class ValidNumber {
 
 	// Time complexity is O(n).
 	// Space complexity is O(1).
-	
 }
