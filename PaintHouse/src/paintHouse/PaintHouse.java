@@ -1,10 +1,13 @@
 package paintHouse;
 
-// LeetCode #256
+// LeetCode #256 (Paint House).
 
-// There are a row of n houses, each house can be painted with one of the three colors: red, blue or green. 
-// The cost of painting each house with a certain color is different. 
-// You have to paint all the houses such that no two adjacent houses have the same color.
+// There are a row of n houses, each house can be painted with one of the three colors: 
+// red, blue or green.
+
+// The cost of painting each house with a certain color is different. You have to paint
+// all the houses such that no two adjacent houses have the same color.
+
 // Find the minimum cost to paint all houses.
 
 public class PaintHouse {
@@ -14,7 +17,7 @@ public class PaintHouse {
 			return 0;
 		}
 		int n = costs.length;
-		int[] prev = new int[3], cur = new int[3];
+		int[] prev = new int[3], cur = new int[3]; // prev: costs of painting so far
 		prev = costs[0];
 		for (int i = 1; i < n; i++) {
 			cur = new int[3];
@@ -28,5 +31,4 @@ public class PaintHouse {
 
 	// Time complexity is O(n * k).
 	// Space complexity is O(k).
-
 }
