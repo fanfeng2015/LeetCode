@@ -21,24 +21,27 @@ public class PaintHouse2 {
 
 	// Optimal solution costs O(n*k) time and O(1) space.
 	public int minCost(int[][] costs) {
+		if (costs == null || costs.length == 0 || costs[0].length == 0) {
+			return 0;
+		}
 		int n = costs.length, k = costs[0].length;
-		int curMinIndex = -1, curSecondMinIndex = -1;
+		int curMin = -1, curSecondMin = -1; // both are index
 		for (int i = 0; i < n; i++) {
-			int prevMinIndex = curMinIndex, prevSecondMinIndex = curSecondMinIndex;
-			curMinIndex = curSecondMinIndex = -1;
+			int prevMin = curMin, prevSecondMin = curSecondMin;
+			curMin = curSecondMin = -1;
 			for (int j = 0; j < k; j++) {
 				costs[i][j] += (i == 0) ? 0
-						: (j == prevMinIndex) ? costs[i - 1][prevSecondMinIndex] : costs[i - 1][prevMinIndex];
-				// update curMinIndex and curSecondMinIndex
-				if (curMinIndex < 0 || costs[i][j] < costs[i][curMinIndex]) {
-					curSecondMinIndex = curMinIndex;
-					curMinIndex = j;
-				} else if (curSecondMinIndex < 0 || costs[i][j] < costs[i][curSecondMinIndex]) { // else if, not if
-					curSecondMinIndex = j;
+						: (j == prevMin) ? costs[i - 1][prevSecondMin] : costs[i - 1][prevSecondMin];
+				// update curMin and curSecondMin
+				if (curMin < 0 || costs[i][j] < costs[i][curMin]) {
+					curSecondMin = curMin;
+					curMin = j;
+				} else if (curSecondMin < 0 || costs[i][j] < costs[i][curSecondMin]) { // else if, not if
+					curSecondMin = j;
 				}
 			}
 		}
-		return costs[n - 1][curMinIndex];
+		return costs[n - 1][curMin];
 	}
 
 	// Time complexity is O(n*k).
