@@ -29,6 +29,9 @@ public class PaintHouse {
 		return Math.min(prev[0], Math.min(prev[1], prev[2]));
 	}
 
-	// Time complexity is O(n * k).
+	// Time complexity is O(n*k*k)
 	// Space complexity is O(k).
+
+	// See LeetCode #265 (Paint House II) for the optimal solution with k colors
+	// that costs O(n*k) time and O(k) space.
 }
