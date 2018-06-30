@@ -13,7 +13,7 @@ package paintHouse;
 public class PaintHouse {
 
 	public int minCost(int[][] costs) {
-		if (costs == null || costs.length == 0) {
+		if (costs == null || costs.length == 0 || costs[0].length == 0) {
 			return 0;
 		}
 		int n = costs.length;
