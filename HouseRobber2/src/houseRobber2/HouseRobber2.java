@@ -1,6 +1,6 @@
 package houseRobber2;
 
-// LeetCode #213
+// LeetCode #213 (House Robber II).
 
 // After robbing those houses on that street, the thief has found himself a new place for his thievery 
 // so that he will not get too much attention. This time, all houses at this place are arranged in a circle. 
@@ -20,7 +20,7 @@ public class HouseRobber2 {
 	}
 
 	private int rob(int[] nums, int left, int right) {
-		int odd = 0, even = 0;
+		int even = 0, odd = 0;
 		for (int i = left; i <= right; i++) {
 			if (i % 2 == 0) {
 				even = Math.max(even + nums[i], odd);
@@ -28,7 +28,7 @@ public class HouseRobber2 {
 				odd = Math.max(odd + nums[i], even);
 			}
 		}
-		return Math.max(odd, even);
+		return Math.max(even, odd);
 	}
 
 	// Time complexity is O(n).
