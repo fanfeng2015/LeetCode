@@ -26,6 +26,6 @@ public class AddTwoNumbers {
 		return head.next;
 	}
 
-	// Time complexity is O(m+n).
+	// Time complexity is O(m + n).
 	// Space complexity is O(1).
 }
