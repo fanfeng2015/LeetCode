@@ -11,7 +11,7 @@ public class LongestPalindromicSubstring {
 	private int lo, max;
 
 	public String longestPalindrome(String s) {
-		for (int i = 0; i < s.length() - 1; i++) {
+		for (int i = 0; i < s.length(); i++) {
 			extendOnBothSides(s, i, i);
 			extendOnBothSides(s, i, i + 1);
 		}
