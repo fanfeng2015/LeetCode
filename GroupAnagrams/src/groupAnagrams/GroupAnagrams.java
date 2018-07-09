@@ -15,7 +15,8 @@ import java.util.Map;
 
 public class GroupAnagrams {
 
-	private int[] primes = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
+	// first 26 prime numbers
+	private int[] PRIMES = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
 			101, 103 };
 
 	public List<List<String>> groupAnagrams(String[] strs) {
@@ -24,7 +25,7 @@ public class GroupAnagrams {
 		for (String s : strs) {
 			int key = 1;
 			for (int i = 0; i < s.length(); i++) {
-				key *= primes[s.charAt(i) - 'a'];
+				key *= PRIMES[s.charAt(i) - 'a'];
 			}
 
 			if (map.containsKey(key)) {
