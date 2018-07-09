@@ -1,6 +1,6 @@
 package stringToInteger;
 
-// LeetCode #8
+// LeetCode #8 (String to Integer (atoi)).
 
 // Implement atoi to convert a string to an integer.
 
@@ -25,8 +25,7 @@ public class StringToInteger {
 				break;
 			}
 			int digit = Character.getNumericValue(str.charAt(index));
-			// does (10 * result + digit) overflow?
-			// 10 * result + digit > Integer.MAX_VALUE ?
+			// overflow: 10 * result + digit > Integer.MAX_VALUE ?
 			if (result > (Integer.MAX_VALUE - digit) / 10) {
 				return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 			}
