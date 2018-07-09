@@ -3,7 +3,7 @@ package palindromePermutation;
 import java.util.HashSet;
 import java.util.Set;
 
-// LeetCode #266
+// LeetCode #266 (Palindrome Permutation).
 
 // Given a string, determine if a permutation of the string could form a palindrome.
 
