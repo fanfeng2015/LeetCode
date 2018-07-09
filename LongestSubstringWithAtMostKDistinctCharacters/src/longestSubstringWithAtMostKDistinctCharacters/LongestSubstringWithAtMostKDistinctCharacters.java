@@ -8,55 +8,25 @@ package longestSubstringWithAtMostKDistinctCharacters;
 public class LongestSubstringWithAtMostKDistinctCharacters {
 
 	public int lengthOfLongestSubstringKDistinct(String s, int k) {
-		if (k == 0) {
-			return 0;
-		}
 		int max = 0, lo = 0;
-		Entity[] entities = new Entity[k];
+		int count = 0;
+		int[] countMap = new int[256];
 		for (int i = 0; i < s.length(); i++) {
-			boolean found = false;
-			for (int j = 0; j < k; j++) {
-				if (entities[j] == null) {
-					entities[j] = new Entity(s.charAt(i), i);
-					found = true;
-					break;
-				} else if (s.charAt(i) == entities[j].ch) {
-					entities[j].lastOccurrence = i;
-					found = true;
-					break;
+			if (countMap[s.charAt(i)]++ == 0) {
+				count++;
+			}
+			if (count <= k) {
+				max = Math.max(max, i - lo + 1);
+			}
+			while (count > k) {
+				if (countMap[s.charAt(lo++)]-- == 1) {
+					count--;
 				}
 			}
-			if (!found) {
-				int min = findMinLastOccurrence(entities);
-				lo = entities[min].lastOccurrence + 1;
-				entities[min] = new Entity(s.charAt(i), i);
-			}
-			max = Math.max(max, i - lo + 1);
-
 		}
 		return max;
 	}
 
-	private int findMinLastOccurrence(Entity[] entities) {
-		int min = 0;
-		for (int i = 0; i < entities.length; i++) {
-			if (entities[i].lastOccurrence < entities[min].lastOccurrence) {
-				min = i;
-			}
-		}
-		return min;
-	}
-
-	private static class Entity {
-		char ch;
-		int lastOccurrence;
-
-		Entity(char ch, int lastOccurrence) {
-			this.ch = ch;
-			this.lastOccurrence = lastOccurrence;
-		}
-	}
-
-	// Time complexity is O(n*k).
-	// Space complexity is O(k).
+	// Time complexity is O(n).
+	// Space complexity is O(1).
 }
