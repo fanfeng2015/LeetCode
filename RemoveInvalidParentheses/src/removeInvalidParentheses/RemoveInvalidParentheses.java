@@ -63,13 +63,13 @@ public class RemoveInvalidParentheses {
 		queue.offerFirst(s);
 		while (!queue.isEmpty()) {
 			int size = queue.size();
-			for (int i = 0; i < size; i++) { // need to return all possible valid strings
+			for (int i = 0; i < size; i++) { // need to return all possible valid strings on the current level
 				String cur = queue.pollLast();
 				if (isValid(cur)) {
 					result.add(cur);
 				}
-				// once a valid string is found on the current level, not need to delete any
-				// more parentheses
+				// once a valid string is found on the current level, no need to delete any more
+				// parentheses
 				if (result.size() == 0) {
 					for (int j = 0; j < cur.length(); j++) {
 						if (cur.charAt(j) == '(' || cur.charAt(j) == ')') { // can contain letters
