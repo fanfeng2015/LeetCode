@@ -5,8 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// LeetCode #49
+// LeetCode #49 (Group Anagrams).
+
 // Given an array of strings, group anagrams together.
+
+// Notes:
+// 1. All inputs will be in lower case.
+// 2. The order of your output does not matter.
 
 public class GroupAnagrams {
 
@@ -21,6 +26,7 @@ public class GroupAnagrams {
 			for (int i = 0; i < s.length(); i++) {
 				key *= primes[s.charAt(i) - 'a'];
 			}
+
 			if (map.containsKey(key)) {
 				map.get(key).add(s);
 			} else {
@@ -33,7 +39,6 @@ public class GroupAnagrams {
 		return result;
 	}
 
-	// Time complexity is O(n*l), where l is the average length of all words.
+	// Time complexity is O(n*l), where l is the average word length.
 	// Space complexity is O(n).
-
 }
