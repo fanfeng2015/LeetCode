@@ -1,6 +1,6 @@
 package validPalindrome;
 
-// LeetCode #125
+// LeetCode #125 (Valid Palindrome).
 
 // Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
@@ -15,11 +15,10 @@ public class ValidPalindrome {
 			while (right > left && !Character.isLetterOrDigit(s.charAt(right))) {
 				right--;
 			}
-			if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+			if (Character.toLowerCase(s.charAt(left++)) != Character.toLowerCase(s.charAt(right--))) {
 				return false;
 			}
-			left++;
-			right--;
+
 		}
 		return true;
 	}
