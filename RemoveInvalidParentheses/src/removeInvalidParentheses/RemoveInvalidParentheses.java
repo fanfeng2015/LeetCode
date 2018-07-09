@@ -1,14 +1,17 @@
 package removeInvalidParentheses;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-// LeetCode #301
+// LeetCode #301 (Remove Invalid Parentheses).
 
-// Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
+// Remove the minimum number of invalid parentheses in order to make the input string valid. 
+// Return all possible results.
+
 // Note: The input string may contain letters other than the parentheses ( and ).
 
 public class RemoveInvalidParentheses {
@@ -31,23 +34,22 @@ public class RemoveInvalidParentheses {
 			if (count >= 0) {
 				continue;
 			}
+			// count < 0, the first invalid ) appears
 			for (int j = prevj; j <= i; j++) {
 				if (s.charAt(j) == parentheses[1] && (j == prevj || s.charAt(j - 1) != parentheses[1])) {
-					// ()()), can remove the first or the second ), but removing
-					// the second and removing the third are the same
+					// ()()), can remove the first, second or the third ), but removing the second
+					// and removing the third are the same
 					remove(s.substring(0, j) + s.substring(j + 1, s.length()), result, i, j, parentheses);
 				}
 			}
 			return;
 		}
-		// the above is removing invalid ), also need to remove invalid ( for
-		// input like (()(()
+		// once this point is reached, there is no invalid ) in string s, check for any
+		// invalid (
 		String reversed = new StringBuilder(s).reverse().toString();
 		if (parentheses[0] == '(') {
-			// just finished scanning from left to right
 			remove(reversed, result, 0, 0, new char[] { ')', '(' });
 		} else {
-			// just finished scanning from right to left
 			result.add(reversed);
 		}
 	}
@@ -55,40 +57,36 @@ public class RemoveInvalidParentheses {
 	// Solution 2: BFS (strings on level i have i deleted parentheses)
 	public List<String> removeInvalidParentheses2(String s) {
 		List<String> result = new ArrayList<>();
-		if (s == null) {
-			return result;
-		}
 		Set<String> visited = new HashSet<>();
 		LinkedList<String> queue = new LinkedList<>();
 		visited.add(s);
 		queue.offerFirst(s);
 		while (!queue.isEmpty()) {
 			int size = queue.size();
-			boolean found = false;
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < size; i++) { // need to return all possible valid strings
 				String cur = queue.pollLast();
 				if (isValid(cur)) {
 					result.add(cur);
-					found = true;
 				}
-				for (int j = 0; j < cur.length(); j++) {
-					if (cur.charAt(j) == '(' || cur.charAt(j) == ')') {
-						String next = cur.substring(0, j) + cur.substring(j + 1);
-						if (!visited.contains(next)) {
-							queue.offerFirst(next);
-							visited.add(next);
+				// once a valid string is found on the current level, not need to delete any
+				// more parentheses
+				if (result.size() == 0) {
+					for (int j = 0; j < cur.length(); j++) {
+						if (cur.charAt(j) == '(' || cur.charAt(j) == ')') { // can contain letters
+							String next = cur.substring(0, j) + cur.substring(j + 1);
+							if (!visited.contains(next)) {
+								visited.add(next);
+								queue.offerFirst(next);
+							}
 						}
 					}
 				}
 			}
-			if (found) {
+			if (result.size() > 0) {
 				return result;
 			}
 		}
-		if (result.size() == 0) {
-			result.add("");
-		}
-		return result;
+		return result.size() == 0 ? Arrays.asList(new String[] { "" }) : result;
 	}
 
 	private boolean isValid(String s) {
@@ -106,10 +104,4 @@ public class RemoveInvalidParentheses {
 		return count == 0;
 	}
 
-	// Note:
-	// 1. When there are consecutive ( or ), remove only the first one.
-	// 2. When we remove a ( or a ), it must be behind its parent removal
-	// position.
-	// 3. If we remove a ( in the previous step, we should never remove a ) in
-	// the following steps.
 }
