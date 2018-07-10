@@ -43,7 +43,7 @@ public class WordLadder2 {
 		return result;
 	}
 
-	// BFS: 
+	// BFS: construct the map
 	private boolean BFS(Set<String> dictionary, Set<String> beginSet, Set<String> endSet, Map<String, List<String>> map,
 			boolean downward) {
 		if (beginSet.isEmpty()) {
@@ -90,17 +90,16 @@ public class WordLadder2 {
 
 	private void DFS(String beginWord, String endWord, Map<String, List<String>> map, List<String> solution,
 			List<List<String>> result) {
-		if (beginWord.equals(endWord)) { // base case
-			result.add(new ArrayList<String>(solution));
-			return;
-		}
 		if (!map.containsKey(beginWord)) {
 			return;
 		}
-
-		for (String word : map.get(beginWord)) {
-			solution.add(word);
-			DFS(word, endWord, map, solution, result);
+		if (beginWord.equals(endWord)) {
+			result.add(new ArrayList<String>(solution));
+			return;
+		}
+		for (String nextWord : map.get(beginWord)) {
+			solution.add(nextWord);
+			DFS(nextWord, endWord, map, solution, result);
 			solution.remove(solution.size() - 1);
 		}
 	}
