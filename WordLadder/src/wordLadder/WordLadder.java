@@ -28,11 +28,14 @@ public class WordLadder {
 		if (!dictionary.contains(endWord)) {
 			return 0;
 		}
+
 		int length = 1;
 		Set<String> visited = new HashSet<>();
+		
 		Set<String> beginSet = new HashSet<>(), endSet = new HashSet<>();
 		beginSet.add(beginWord);
 		endSet.add(endWord);
+
 		while (!beginSet.isEmpty() && !endSet.isEmpty()) {
 			// optimization: swap beginSet and endSet to save time
 			if (beginSet.size() > endSet.size()) {
@@ -44,15 +47,15 @@ public class WordLadder {
 				char[] chars = s.toCharArray();
 				for (int i = 0; i < chars.length; i++) {
 					char originalChar = chars[i];
-					for (char c = 'a'; c <= 'z'; c++) {
-						chars[i] = c; // modify
-						String newWord = String.valueOf(chars);
-						if (endSet.contains(newWord)) {
+					for (char ch = 'a'; ch <= 'z'; ch++) {
+						chars[i] = ch; // modify
+						String nextWord = String.valueOf(chars);
+						if (endSet.contains(nextWord)) {
 							return length + 1;
 						}
-						if (!visited.contains(newWord) && dictionary.contains(newWord)) {
-							visited.add(newWord);
-							temp.add(newWord);
+						if (!visited.contains(nextWord) && dictionary.contains(nextWord)) {
+							visited.add(nextWord);
+							temp.add(nextWord);
 						}
 						chars[i] = originalChar; // modify back
 					}
