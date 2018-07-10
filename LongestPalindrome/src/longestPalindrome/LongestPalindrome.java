@@ -1,32 +1,29 @@
 package longestPalindrome;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
-// LeetCode #409
+// LeetCode #409 (Longest Palindrome).
 
-// Given a string which consists of lower-case or upper-case letters, 
-// find the length of the longest palindromes that can be built with those letters.
+// Given a string which consists of lower-case or upper-case letters, find the 
+// length of the longest palindromes that can be built with those letters.
+
 // This is case sensitive, for example "Aa" is not considered a palindrome here.
 
 public class LongestPalindrome {
 
 	public int longestPalindrome(String s) {
-		Map<Character, Integer> map = new HashMap<>();
-		for (char ch : s.toCharArray()) {
-			Integer count = map.get(ch);
-			count = count == null ? 1 : count + 1;
-			map.put(ch, count);
+		int count = 0;
+		Set<Character> set = new HashSet<>();
+		for (int i = 0; i < s.length(); i++) {
+			if (!set.add(s.charAt(i))) {
+				count += 2;
+				set.remove(s.charAt(i));
+			}
 		}
-		int result = 0, carry = 0;
-		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-			result += entry.getValue() % 2 == 0 ? entry.getValue() : entry.getValue() - 1;
-			carry = entry.getValue() % 2 == 0 ? carry : 1;
-		}
-		return result + carry;
+		return set.isEmpty() ? count : count + 1;
 	}
 
 	// Time complexity is O(n).
 	// Space complexity is O(n).
-
 }
