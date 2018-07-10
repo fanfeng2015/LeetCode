@@ -63,7 +63,7 @@ public class WordLadder2 {
 		dictionary.removeAll(endSet);
 
 		boolean shortestFound = false;
-		Set<String> temp = new HashSet<String>(); // next level of BFS
+		Set<String> temp = new HashSet<String>(); // beginSet on the next level of BFS
 		// try out all 26 possible characters for each char of each string in beginSet
 		for (String s : beginSet) {
 			char[] chars = s.toCharArray();
