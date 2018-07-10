@@ -1,49 +1,32 @@
 package pascalsTriangle2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-// LeetCode #119
+// LeetCode #119 (Pascal's Triangle II).
 
 // Given an index k, return the k-th row of the Pascal's triangle.
 
 public class PascalsTriangle2 {
 
 	public List<Integer> getRow(int rowIndex) {
-		Integer[] prev = null, cur = new Integer[] { 1 };
-		for (int i = 1; i < rowIndex + 1; i++) {
-			prev = cur;
-			cur = new Integer[i + 1];
-			for (int j = 0; j < i + 1; j++) {
-				if (j == 0 || j == i) {
-					cur[j] = 1;
-				} else {
-					cur[j] = prev[j - 1] + prev[j];
-				}
-			}
+		if (rowIndex < 0) {
+			return new ArrayList<>();
 		}
-		return Arrays.asList(cur);
+		List<Integer> prev = new ArrayList<>(), cur = new ArrayList<>();
+		prev.add(1);
+		for (int i = 0; i < rowIndex; i++) {
+			cur.add(1);
+			for (int j = 0; j < prev.size() - 1; j++) {
+				cur.add(prev.get(j) + prev.get(j + 1));
+			}
+			cur.add(1);
+			prev = cur;
+			cur = new ArrayList<>();
+		}
+		return prev;
 	}
 
 	// Time complexity is O(k^2).
 	// Space complexity is O(k).
-
-	// optimization
-	public List<Integer> getRow2(int rowIndex) {
-		List<Integer> result = new ArrayList<>();
-		if (rowIndex < 0) {
-			return result;
-		}
-		for (int i = 0; i < rowIndex + 1; i++) {
-			result.add(0, 1);
-			for (int j = 1; j < result.size() - 1; j++) {
-				result.set(j, result.get(j) + result.get(j + 1));
-			}
-		}
-		return result;
-	}
-
-	// Time complexity is O(k^2).
-	// Space complexity is O(1), ignoring space needed for output.
 }
