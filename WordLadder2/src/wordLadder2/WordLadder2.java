@@ -68,7 +68,7 @@ public class WordLadder2 {
 			char[] chars = s.toCharArray();
 			for (int i = 0; i < chars.length; i++) {
 				char originalChar = chars[i];
-				for (char ch = 'a'; ch <= 'y'; ch++) {
+				for (char ch = 'a'; ch <= 'z'; ch++) {
 					chars[i] = ch; // modify
 					String nextWord = new String(chars);
 					// check direction
