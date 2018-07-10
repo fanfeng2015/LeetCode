@@ -39,7 +39,7 @@ public class WordLadder {
 				swap(beginSet, endSet);
 			}
 			// try out all 26 possible characters for each char of each string in beginSet
-			Set<String> temp = new HashSet<>();
+			Set<String> temp = new HashSet<>(); // next level of BFS
 			for (String s : beginSet) {
 				char[] chars = s.toCharArray();
 				for (int i = 0; i < chars.length; i++) {
