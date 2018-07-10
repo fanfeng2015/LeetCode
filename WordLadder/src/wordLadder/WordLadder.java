@@ -41,20 +41,20 @@ public class WordLadder {
 			// try out all 26 possible characters for each char of each string in beginSet
 			Set<String> temp = new HashSet<>();
 			for (String s : beginSet) {
-				char[] charArray = s.toCharArray();
-				for (int i = 0; i < charArray.length; i++) {
+				char[] chars = s.toCharArray();
+				for (int i = 0; i < chars.length; i++) {
+					char originalChar = chars[i];
 					for (char c = 'a'; c <= 'z'; c++) {
-						char originalChar = charArray[i];
-						charArray[i] = c;
-						String newString = String.valueOf(charArray);
-						if (endSet.contains(newString)) {
+						chars[i] = c; // modify
+						String newWord = String.valueOf(chars);
+						if (endSet.contains(newWord)) {
 							return length + 1;
 						}
-						if (!visited.contains(newString) && dictionary.contains(newString)) {
-							visited.add(newString);
-							temp.add(newString);
+						if (!visited.contains(newWord) && dictionary.contains(newWord)) {
+							visited.add(newWord);
+							temp.add(newWord);
 						}
-						charArray[i] = originalChar;
+						chars[i] = originalChar; // modify back
 					}
 				}
 			}
