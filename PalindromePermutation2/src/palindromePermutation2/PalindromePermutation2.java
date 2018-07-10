@@ -20,7 +20,7 @@ public class PalindromePermutation2 {
 		if (!canPermutePalindrome(s)) {
 			return new ArrayList<String>();
 		}
-		findChars(s);
+		findAllChars(s);
 		List<String> result = new ArrayList<>();
 		DFS(0, result);
 		return result;
@@ -35,7 +35,7 @@ public class PalindromePermutation2 {
 		return set.size() <= 1;
 	}
 
-	private void findChars(String s) {
+	private void findAllChars(String s) {
 		List<Character> list = new ArrayList<>();
 		Set<Character> set = new HashSet<>();
 		for (int i = 0; i < s.length(); i++) {
@@ -52,6 +52,7 @@ public class PalindromePermutation2 {
 		}
 	}
 
+	// LeetCode #47 (Permutations II).
 	private void DFS(int start, List<String> result) {
 		if (start == chars.length) {
 			StringBuilder firstHalf = new StringBuilder(new String(chars));
