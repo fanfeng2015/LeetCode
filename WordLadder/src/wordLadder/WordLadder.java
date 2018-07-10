@@ -1,15 +1,24 @@
 package wordLadder;
 
-// LeetCode #127
-
-// Given two words (beginWord and endWord), and a dictionary's word list, 
-// find the length of shortest transformation sequence from beginWord to endWord, such that:
-// 1. Only one letter can be changed at a time.
-// 2. Each transformed word must exist in the word list. Note that beginWord is not a transformed word.
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+// LeetCode #127 (Word Ladder).
+
+// Given two words (beginWord and endWord), and a dictionary's word list, find the length
+// of shortest transformation sequence from beginWord to endWord, such that:
+
+// 1. Only one letter can be changed at a time.
+// 2. Each transformed word must exist in the word list. Note that beginWord is not a transformed
+//    word.
+
+// Note:
+// 1. Return 0 if there is no such transformation sequence.
+// 2. All words have the same length.
+// 3. All words contain only lower case alphabetic characters.
+// 4. You may assume no duplicates in the word list.
+// 5. You may assume beginWord and endWord are non-empty and are not the same.
 
 public class WordLadder {
 
@@ -19,20 +28,17 @@ public class WordLadder {
 		if (!dictionary.contains(endWord)) {
 			return 0;
 		}
+		int length = 1;
+		Set<String> visited = new HashSet<>();
 		Set<String> beginSet = new HashSet<>(), endSet = new HashSet<>();
 		beginSet.add(beginWord);
 		endSet.add(endWord);
-		Set<String> visited = new HashSet<>();
-		int length = 1;
 		while (!beginSet.isEmpty() && !endSet.isEmpty()) {
-			// swap beginSet and endSet to optimize time
+			// optimization: swap beginSet and endSet to save time
 			if (beginSet.size() > endSet.size()) {
-				Set<String> temp = beginSet;
-				beginSet = endSet;
-				endSet = temp;
+				swap(beginSet, endSet);
 			}
-			// try out all 26 possible characters for each char of each String
-			// in beginSet
+			// try out all 26 possible characters for each char of each string in beginSet
 			Set<String> temp = new HashSet<>();
 			for (String s : beginSet) {
 				char[] charArray = s.toCharArray();
@@ -56,5 +62,11 @@ public class WordLadder {
 			length++;
 		}
 		return 0;
+	}
+
+	private void swap(Set<String> beginSet, Set<String> endSet) {
+		Set<String> temp = beginSet;
+		beginSet = endSet;
+		endSet = temp;
 	}
 }
