@@ -33,8 +33,7 @@ public class WordLadder2 {
 			return new ArrayList<List<String>>();
 		}
 
-		Set<String> beginSet = new HashSet<String>();
-		Set<String> endSet = new HashSet<String>();
+		Set<String> beginSet = new HashSet<String>(), endSet = new HashSet<String>();
 		beginSet.add(beginWord);
 		endSet.add(endWord);
 
@@ -109,5 +108,4 @@ public class WordLadder2 {
 			solution.remove(solution.size() - 1);
 		}
 	}
-
 }
