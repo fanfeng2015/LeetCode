@@ -37,9 +37,9 @@ public class WordLadder {
 		endSet.add(endWord);
 
 		while (!beginSet.isEmpty() && !endSet.isEmpty()) {
-			// optimization: swap beginSet and endSet to save time
+			// optimization: flip beginSet and endSet to save time
 			if (beginSet.size() > endSet.size()) {
-				swap(beginSet, endSet);
+				flip(beginSet, endSet);
 			}
 			// try out all 26 possible characters for each char of each string in beginSet
 			Set<String> temp = new HashSet<>(); // next level of BFS
@@ -67,7 +67,7 @@ public class WordLadder {
 		return 0;
 	}
 
-	private void swap(Set<String> beginSet, Set<String> endSet) {
+	private void flip(Set<String> beginSet, Set<String> endSet) {
 		Set<String> temp = beginSet;
 		beginSet = endSet;
 		endSet = temp;
