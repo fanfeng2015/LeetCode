@@ -95,11 +95,11 @@ public class WordLadder2 {
 
 	private void DFS(String beginWord, String endWord, Map<String, List<String>> map, List<String> solution,
 			List<List<String>> result) {
-		if (!map.containsKey(beginWord)) {
-			return;
-		}
 		if (beginWord.equals(endWord)) {
 			result.add(new ArrayList<String>(solution));
+			return;
+		}
+		if (!map.containsKey(beginWord)) {
 			return;
 		}
 		for (String nextWord : map.get(beginWord)) {
