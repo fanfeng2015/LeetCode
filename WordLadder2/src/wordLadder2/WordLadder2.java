@@ -109,4 +109,6 @@ public class WordLadder2 {
 			solution.remove(solution.size() - 1);
 		}
 	}
+	
+	// Too hard...
 }
