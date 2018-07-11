@@ -1,6 +1,7 @@
 package intersectionOfTwoLinkedLists;
 
-// LeetCode #160
+// LeetCode #160 (Intersection of Two Linked Lists).
+
 // Write a program to find the node at which the intersection of two singly linked lists begins.
 
 public class IntersectionOfTwoLinkedLists {
@@ -18,7 +19,6 @@ public class IntersectionOfTwoLinkedLists {
 		return curA;
 	}
 
-	// Time complexity is O(m+n).
+	// Time complexity is O(m + n).
 	// Space complexity is O(1).
-
 }
