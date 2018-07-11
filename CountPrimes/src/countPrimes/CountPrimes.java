@@ -1,6 +1,7 @@
 package countPrimes;
 
-// LeetCode #204
+// LeetCode #204 (Count Primes).
+
 // Count the number of prime numbers less than a non-negative number, n.
 
 public class CountPrimes {
