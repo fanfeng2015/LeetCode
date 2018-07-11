@@ -95,6 +95,7 @@ public class WordLadder2 {
 
 	private void DFS(String beginWord, String endWord, Map<String, List<String>> map, List<String> solution,
 			List<List<String>> result) {
+		// Note the order of the two base cases.
 		if (beginWord.equals(endWord)) {
 			result.add(new ArrayList<String>(solution));
 			return;
