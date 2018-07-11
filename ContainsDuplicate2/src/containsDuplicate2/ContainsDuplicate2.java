@@ -3,7 +3,7 @@ package containsDuplicate2;
 import java.util.HashSet;
 import java.util.Set;
 
-// LeetCode #219
+// LeetCode #219 (Contains Duplicate II).
 
 // Given an array of integers and an integer k, find out whether there are 
 // two distinct indices i and j in the array such that nums[i] = nums[j] and 
