@@ -8,6 +8,7 @@ package populatingNextRightPointerInEachNode2;
 public class PopulatingNextRightPointerInEachNode2 {
 
 	// Solution 1: BFS (see LeetCode #116).
+
 	// Time complexity is O(n).
 	// Space complexity is O(n).
 
@@ -16,7 +17,7 @@ public class PopulatingNextRightPointerInEachNode2 {
 		TreeLinkNode head = root;
 		while (head != null) {
 			TreeLinkNode nextHead = new TreeLinkNode(0), nextTail = nextHead;
-			while (head != null) {
+			while (head != null) { // current level
 				if (head.left != null) {
 					nextTail.next = head.left;
 					nextTail = nextTail.next;
@@ -27,8 +28,7 @@ public class PopulatingNextRightPointerInEachNode2 {
 				}
 				head = head.next;
 			}
-			// next level
-			head = nextHead.next;
+			head = nextHead.next; // next level
 		}
 	}
 
