@@ -58,8 +58,7 @@ public class PopulatingNextRightPointerInEachNode {
 				}
 				cur = cur.next;
 			}
-			// next level
-			prev = prev.left;
+			prev = prev.left; // next level
 		}
 	}
 
