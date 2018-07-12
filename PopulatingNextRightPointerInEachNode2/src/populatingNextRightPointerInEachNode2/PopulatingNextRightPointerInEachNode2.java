@@ -1,12 +1,17 @@
 package populatingNextRightPointerInEachNode2;
 
-// LeetCode #117: follow-up of #116.
+// LeetCode #117 (Populating Next Right Pointers in Each Node II).
 
 // What if the given tree could be any binary tree?
 // You may only use constant extra space.
 
 public class PopulatingNextRightPointerInEachNode2 {
 
+	// Solution 1: BFS (see LeetCode #116).
+	// Time complexity is O(n).
+	// Space complexity is O(n).
+
+	// Solution 2: in place
 	public void connect(TreeLinkNode root) {
 		TreeLinkNode head = root;
 		while (head != null) {
