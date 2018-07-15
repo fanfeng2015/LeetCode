@@ -30,7 +30,7 @@ public class InsertDeleteGetRandomO1 {
 			return false;
 		}
 		list.add(val);
-		map.put(val, list.size());
+		map.put(val, list.size() - 1);
 		return true;
 	}
 
