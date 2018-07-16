@@ -1,4 +1,4 @@
-package romanToInt;
+package romanToInteger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 // Input is guaranteed to be within the range from 1 to 3999.
 
-public class RomanToInt {
+public class RomanToInteger {
 
 	public int romanToInt(String s) {
 		if (s == null || s.length() == 0) {
