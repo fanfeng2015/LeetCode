@@ -3,9 +3,10 @@ package romanToInt;
 import java.util.HashMap;
 import java.util.Map;
 
-// LeetCode #13
+// LeetCode #13 (Roman to Integer).
 
 // Given a roman numeral, convert it to an integer.
+
 // Input is guaranteed to be within the range from 1 to 3999.
 
 public class RomanToInt {
@@ -15,9 +16,8 @@ public class RomanToInt {
 			return -1;
 		}
 		Map<Character, Integer> map = constructMap(s);
-		int n = s.length();
-		int result = map.get(s.charAt(n - 1));
-		for (int i = n - 2; i >= 0; i--) {
+		int result = map.get(s.charAt(s.length() - 1));
+		for (int i = s.length() - 2; i >= 0; i--) {
 			if (map.get(s.charAt(i)) >= map.get(s.charAt(i + 1))) {
 				result += map.get(s.charAt(i));
 			} else {
