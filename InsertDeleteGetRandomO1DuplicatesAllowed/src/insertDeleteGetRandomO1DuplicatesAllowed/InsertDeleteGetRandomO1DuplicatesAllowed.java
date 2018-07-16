@@ -43,7 +43,7 @@ public class InsertDeleteGetRandomO1DuplicatesAllowed {
 		if (indices == null) {
 			return false;
 		}
-		Integer index = indices.iterator().next(); // iterator()
+		Integer index = indices.iterator().next();
 		index = (val == list.get(list.size() - 1)) ? list.size() - 1 : index; // trick
 		if (index != list.size() - 1) {
 			LinkedHashSet<Integer> swap = map.get(list.get(list.size() - 1));
