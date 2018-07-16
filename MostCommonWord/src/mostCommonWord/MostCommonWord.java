@@ -39,4 +39,6 @@ public class MostCommonWord {
 		return result;
 	}
 
+	// Time complexity is O(m + n).
+	// Space complexity is O(m + n).
 }
