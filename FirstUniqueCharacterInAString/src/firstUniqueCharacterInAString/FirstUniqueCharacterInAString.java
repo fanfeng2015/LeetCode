@@ -3,8 +3,10 @@ package firstUniqueCharacterInAString;
 import java.util.HashMap;
 import java.util.Map;
 
-// LeetCode #387
-// Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.
+// LeetCode #387 (First Unique Character in a String). 
+
+// Given a string, find the first non-repeating character in it and return its index. 
+// If it doesn't exist, return -1.
 
 public class FirstUniqueCharacterInAString {
 
@@ -24,7 +26,6 @@ public class FirstUniqueCharacterInAString {
 	}
 
 	// Time complexity is O(n).
-	// Space complexity is O(n), but really the space it takes is only the
-	// number of possible characters (256?), is no worse then using
-	// int[] array = new int[256].
+	// Space complexity is O(n), but is obviously bounded by the number of possible
+	// characters.
 }
