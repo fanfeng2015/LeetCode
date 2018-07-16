@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-// LeetCode #451
+// LeetCode #451 (Sort Characters by Frequency).
 
 // Given a string, sort it in decreasing order based on the frequency of characters.
 
@@ -15,17 +15,14 @@ public class SortCharactersByFrequency {
 
 	// Solution 1: Priority Queue
 	public String frequencySort(String s) {
-		if (s.length() <= 1) {
+		if (s == null || s.length() <= 1) {
 			return s;
 		}
-		char[] result = new char[s.length()];
 		Map<Character, Integer> map = new HashMap<>();
 		for (int i = 0; i < s.length(); i++) {
-			if (map.containsKey(s.charAt(i))) {
-				map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
-			} else {
-				map.put(s.charAt(i), 1);
-			}
+			Integer count = map.get(s.charAt(i));
+			count = (count == null) ? 1 : count + 1;
+			map.put(s.charAt(i), count);
 		}
 		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>(
 				s.length(), new Comparator<Map.Entry<Character, Integer>>() {
@@ -40,15 +37,15 @@ public class SortCharactersByFrequency {
 		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
 			maxHeap.offer(entry);
 		}
-		int index = 0;
+		StringBuilder sb = new StringBuilder();
 		while (!maxHeap.isEmpty()) {
 			Map.Entry<Character, Integer> entry = maxHeap.poll();
 			for (int i = 0; i < entry.getValue(); i++) {
-				result[index++] = entry.getKey();
+				sb.append(entry.getKey());
 			}
 		}
-		return new String(result);
-	};
+		return sb.toString();
+	}
 
 	// Time complexity is O(n * log(n)).
 	// Space complexity is O(n).
@@ -58,16 +55,13 @@ public class SortCharactersByFrequency {
 		if (s.length() <= 1) {
 			return s;
 		}
-		char[] result = new char[s.length()];
 		Map<Character, Integer> map = new HashMap<>();
 		for (int i = 0; i < s.length(); i++) {
-			if (map.containsKey(s.charAt(i))) {
-				map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
-			} else {
-				map.put(s.charAt(i), 1);
-			}
+			Integer count = map.get(s.charAt(i));
+			count = (count == null) ? 1 : count + 1;
+			map.put(s.charAt(i), count);
 		}
-		List<Character>[] buckets = new List[s.length() + 1];
+		List<Character>[] buckets = new List[s.length() + 1]; // index is frequency
 		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
 			int frequency = entry.getValue();
 			if (buckets[frequency] == null) {
@@ -75,18 +69,18 @@ public class SortCharactersByFrequency {
 			}
 			buckets[frequency].add(entry.getKey());
 		}
-		int index = 0;
+		StringBuilder sb = new StringBuilder();
 		for (int i = buckets.length - 1; i >= 0; i--) {
 			if (buckets[i] != null) {
 				for (Character ch : buckets[i]) {
 					for (int j = 0; j < i; j++) {
-						result[index++] = ch;
+						sb.append(ch);
 					}
 				}
 			}
 		}
-		return new String(result);
-	};
+		return sb.toString();
+	}
 
 	// Time complexity is O(n).
 	// Space complexity is O(n).
