@@ -1,6 +1,6 @@
 package pow;
 
-// LeetCode #50
+// LeetCode #50 (Pow(x, n)).
 
 // Implement pow(x, n).
 
@@ -11,7 +11,7 @@ public class Pow {
 			return 1;
 		}
 		if (n == Integer.MIN_VALUE) {
-			return (1 / x) * myPow(x, -n + 1);
+			return (1 / x) * myPow(x, n + 1);
 		}
 		if (n < 0) {
 			x = 1 / x;
