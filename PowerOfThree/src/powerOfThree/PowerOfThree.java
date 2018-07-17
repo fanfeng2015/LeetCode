@@ -1,6 +1,6 @@
 package powerOfThree;
 
-// LeetCode #326
+// LeetCode #326 (Power of Three).
 
 // Given an integer, write a function to determine if it is a power of three.
 
