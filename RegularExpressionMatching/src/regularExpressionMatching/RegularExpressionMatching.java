@@ -1,6 +1,6 @@
 package regularExpressionMatching;
 
-// LeetCode #10
+// LeetCode #10 (Regular Expression Matching).
 
 // Implement regular expression matching with support for '.' and '*'.
 // '.' Matches any single character.
@@ -28,7 +28,7 @@ public class RegularExpressionMatching {
 				} else if (p.charAt(j - 1) == '*') {
 					// assumption: * is not the first character, and must follow
 					// some other character
-					M[i][j] = M[i][j - 2];
+					M[i][j] = M[i][j - 2]; // * is 0 preceding element
 					if (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1)) {
 						M[i][j] = M[i][j] || M[i][j - 1] || M[i - 1][j];
 					}
@@ -38,6 +38,6 @@ public class RegularExpressionMatching {
 		return M[m][n];
 	}
 
-	// Time complexity is O(m * n).
-	// Space complexity is O(m * n).
+	// Time complexity is O(m*n).
+	// Space complexity is O(m*n).
 }
