@@ -39,5 +39,5 @@ public class RegularExpressionMatching {
 	}
 
 	// Time complexity is O(m*n).
-	// Space complexity is O(m*n).
+	// Space complexity is O(m*n), but obviously can be optimized to O(1).
 }
