@@ -1,15 +1,15 @@
 package palindromePairs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// LeetCode #336
+// LeetCode #336 (Palindrome Pairs).
 
-// Given a list of unique words, find all pairs of distinct indices (i, j) 
-// in the given list, so that the concatenation of the two words, i.e. words[i] + words[j]
-// is a palindrome.
+// Given a list of unique words, find all pairs of distinct indices (i, j) in the given list, so that
+// the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
 
 public class PalindromePairs {
 
@@ -29,19 +29,13 @@ public class PalindromePairs {
 				if (isPalindrome(left)) {
 					String reverseRight = new StringBuilder(right).reverse().toString();
 					if (map.containsKey(reverseRight) && map.get(reverseRight) != i) {
-						List<Integer> cur = new ArrayList<>();
-						cur.add(map.get(reverseRight));
-						cur.add(i);
-						result.add(cur);
+						result.add(Arrays.asList(new Integer[] { map.get(reverseRight), i }));
 					}
 				}
 				if (isPalindrome(right)) {
 					String reverseLeft = new StringBuilder(left).reverse().toString();
-					if (map.containsKey(reverseLeft) && map.get(reverseLeft) != i && right.length() != 0) {
-						List<Integer> cur = new ArrayList<>();
-						cur.add(i);
-						cur.add(map.get(reverseLeft));
-						result.add(cur);
+					if (map.containsKey(reverseLeft) && map.get(reverseLeft) != i && right.length() != 0) { // note
+						result.add(Arrays.asList(new Integer[] { i, map.get(reverseLeft) }));
 					}
 				}
 			}
@@ -52,11 +46,9 @@ public class PalindromePairs {
 	private boolean isPalindrome(String str) {
 		int left = 0, right = str.length() - 1;
 		while (left < right) {
-			if (str.charAt(left) != str.charAt(right)) {
+			if (str.charAt(left++) != str.charAt(right--)) {
 				return false;
 			}
-			left++;
-			right--;
 		}
 		return true;
 	}
