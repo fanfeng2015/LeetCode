@@ -4,7 +4,7 @@ import java.util.List;
 
 // LeetCode #281 (Zigzag Iterator).
 
-// Given two 1d vectors, implement an iterator to return their elements alternately.
+// Given two 1D vectors, implement an iterator to return their elements alternately.
 
 public class ZigzagIterator {
 
