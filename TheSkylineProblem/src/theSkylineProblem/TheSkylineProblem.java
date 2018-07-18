@@ -10,6 +10,11 @@ import java.util.PriorityQueue;
 public class TheSkylineProblem {
 
 	public List<int[]> getSkyline(int[][] buildings) {
+		List<int[]> result = new ArrayList<>();
+		if (buildings == null || buildings.length == 0) {
+			return result;
+		}
+
 		List<int[]> heights = new ArrayList<>();
 		for (int[] building : buildings) {
 			heights.add(new int[] { building[0], -building[2] });
@@ -27,7 +32,6 @@ public class TheSkylineProblem {
 		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(heights.size(), (a, b) -> (b - a));
 		maxHeap.offer(0);
 
-		List<int[]> result = new ArrayList<>();
 		for (int[] height : heights) {
 			if (height[1] < 0) {
 				maxHeap.offer(-height[1]);
