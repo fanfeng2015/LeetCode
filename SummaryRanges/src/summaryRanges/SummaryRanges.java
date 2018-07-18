@@ -3,7 +3,7 @@ package summaryRanges;
 import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #228
+// LeetCode #228 (Summary Ranges).
 
 // Given a sorted integer array without duplicates, return the summary of its ranges.
 // For example, given [0, 1, 2, 4, 5, 7], return ["0->2", "4->5", "7"].
@@ -11,20 +11,17 @@ import java.util.List;
 public class SummaryRanges {
 
 	public List<String> summaryRanges(int[] nums) {
+		int left = 0;
 		List<String> result = new ArrayList<>();
-		int i = 0;
-		while (i < nums.length) {
-			int start = i;
-			while (i < nums.length - 1 && nums[i + 1] - nums[i] == 1) {
-				i++;
+		for (int i = 1; i <= nums.length; i++) {
+			if (i == nums.length || (long) nums[i] - nums[i - 1] > 1) {
+				result.add(i - 1 == left ? nums[left] + "" : nums[left] + "->" + nums[i - 1]);
+				left = i;
 			}
-			String str = (start == i) ? nums[start] + "" : nums[start] + "->" + nums[i];
-			result.add(str);
-			i++;
 		}
 		return result;
 	}
 
 	// Time complexity is O(n).
-	// Space complexity is O(1)., ignoring space needed for output.
+	// Space complexity is O(1).
 }
