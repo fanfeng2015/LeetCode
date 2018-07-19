@@ -1,8 +1,9 @@
 package integerToEnglishWords;
 
-// LeetCode #273
+// LeetCode #273 (Integer to English Words).
 
-// Convert a non-negative integer to its English words representation. 
+// Convert a non-negative integer to its English words representation.
+
 // Given input is guaranteed to be less than 2^31 - 1.
 
 public class IntegerToEnglishWords {
