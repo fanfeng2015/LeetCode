@@ -28,5 +28,5 @@ public class PartitionEqualSubsetSum {
 	}
 
 	// Time complexity is O(n*sum).
-	// Space complexity is O(n*sum).
+	// Space complexity is O(n*sum), but obviously can be optimized to O(sum).
 }
