@@ -3,7 +3,7 @@ package binaryTreePaths;
 import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #257
+// LeetCode #257 (Binary Tree Paths).
 
 // Given a binary tree, return all root-to-leaf paths.
 
@@ -20,14 +20,12 @@ public class BinaryTreePaths {
 	}
 
 	private void helper(TreeNode root, List<String> result, StringBuilder sb) {
-		// base case
 		if (root.left == null && root.right == null) {
 			sb.append(root.val);
 			result.add(sb.toString());
 			sb.delete(sb.length() - String.valueOf(root.val).length(), sb.length());
 			return;
 		}
-		// recursive rule
 		sb.append(root.val).append("->");
 		if (root.left != null) {
 			helper(root.left, result, sb);
@@ -38,6 +36,6 @@ public class BinaryTreePaths {
 		sb.delete(sb.length() - 2 - String.valueOf(root.val).length(), sb.length());
 	}
 
-	// Time complexity is O(n), thanks to StringBuilder.
+	// Time complexity is O(n), because append() of StringBuilder takes O(1) time.
 	// Space complexity is O(n), when the binary tree is highly unbalanced.
 }
