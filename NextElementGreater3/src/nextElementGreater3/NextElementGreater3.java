@@ -9,7 +9,6 @@ package nextElementGreater3;
 
 public class NextElementGreater3 {
 
-	// Same as LeetCode #31 (Next Permutation).
 	public int nextGreaterElement(int n) {
 		String s = String.valueOf(n);
 		int[] nums = new int[s.length()];
@@ -19,6 +18,7 @@ public class NextElementGreater3 {
 		return nextPermutation(nums);
 	}
 
+	// LeetCode #31 (Next Permutation).
 	private int nextPermutation(int[] nums) {
 		int k = -1;
 		for (int i = nums.length - 2; i >= 0; i--) {
@@ -34,15 +34,16 @@ public class NextElementGreater3 {
 			if (nums[i] > nums[k]) {
 				swap(nums, k, i);
 				reverse(nums, k + 1, nums.length - 1);
-				// convert int[] to int
+
 				StringBuilder sb = new StringBuilder();
 				for (int j = 0; j < nums.length; j++) {
 					sb.append(nums[j]);
 				}
+				// might overflow
 				return Long.parseLong(sb.toString()) > Integer.MAX_VALUE ? -1 : Integer.parseInt(sb.toString());
 			}
 		}
-		return -1; // never reach here
+		return -1; // should never reach here
 	}
 
 	private void reverse(int[] nums, int left, int right) {
