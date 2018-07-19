@@ -10,6 +10,8 @@ package readNCharactersGivenRead4;
 // By using the read4 API, implement the function int read(char *buf, int n) 
 // that reads n characters from the file.
 
+// Note: The read function will only be called once for each test case.
+
 public class ReadNCharactersGivenRead4 extends Reader4 {
 
 	char[] curBuf = new char[4];
