@@ -62,4 +62,6 @@ public class NextElementGreater3 {
 		nums[right] = temp;
 	}
 
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
