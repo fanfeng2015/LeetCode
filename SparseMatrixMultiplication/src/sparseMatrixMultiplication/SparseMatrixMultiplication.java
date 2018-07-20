@@ -3,9 +3,10 @@ package sparseMatrixMultiplication;
 import java.util.ArrayList;
 import java.util.List;
 
-// LeetCode #311
+// LeetCode #311 (Sparse Matrix Multiplication).
 
 // Given two sparse matrices A and B, return the result of AB.
+
 // You may assume that A's column number is equal to B's row number.
 
 public class SparseMatrixMultiplication {
