@@ -31,7 +31,7 @@ public class SparseMatrixMultiplication {
 	}
 
 	// Solution 2
-	static class Cell {
+	private static class Cell {
 		int col;
 		int val;
 
