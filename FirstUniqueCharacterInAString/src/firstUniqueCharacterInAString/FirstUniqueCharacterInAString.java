@@ -1,7 +1,10 @@
 package firstUniqueCharacterInAString;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 // LeetCode #387 (First Unique Character in a String). 
 
@@ -28,4 +31,22 @@ public class FirstUniqueCharacterInAString {
 	// Time complexity is O(n).
 	// Space complexity is O(n), but is obviously bounded by the number of possible
 	// characters.
+
+	// Follow up: what if chars are give as data stream?
+	// LinkedHashMap
+	public int firstUniqChar2(String s) {
+		Map<Character, Integer> map = new LinkedHashMap<>();
+		Set<Character> set = new HashSet<>();
+		for (int i = 0; i < s.length(); i++) {
+			if (!set.add(s.charAt(i))) {
+				map.remove(s.charAt(i));
+			} else {
+				map.put(s.charAt(i), i);
+			}
+		}
+		return map.size() == 0 ? -1 : map.entrySet().iterator().next().getValue();
+	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
