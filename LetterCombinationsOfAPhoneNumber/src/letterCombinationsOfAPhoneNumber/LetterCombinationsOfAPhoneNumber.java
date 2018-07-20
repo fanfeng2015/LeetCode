@@ -34,5 +34,7 @@ public class LetterCombinationsOfAPhoneNumber {
 	}
 
 	// Time complexity is O(4^n).
-	// Space complexioty is O(n).
+	// Space complexity is O(n).
+
+	// Follow up (Facebook): filter the result with a word list.
 }
