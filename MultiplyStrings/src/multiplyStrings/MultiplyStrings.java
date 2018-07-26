@@ -21,7 +21,7 @@ public class MultiplyStrings {
 		}
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < result.length; i++) {
-			if (sb.length() == 0 && i == 0) {
+			if (sb.length() == 0 && result[i] == 0) {
 				continue;
 			}
 			sb.append(result[i]);
