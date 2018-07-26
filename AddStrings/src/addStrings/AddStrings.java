@@ -17,7 +17,7 @@ public class AddStrings {
 			sb.append(sum % 10);
 			carry = sum / 10;
 		}
-		sb.append(carry == 0 ? 0 : carry);
+		sb.append(carry == 0 ? "" : carry);
 		return sb.reverse().toString();
 	}
 
