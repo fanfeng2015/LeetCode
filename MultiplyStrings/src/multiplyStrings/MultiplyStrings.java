@@ -1,6 +1,6 @@
 package multiplyStrings;
 
-// LeetCode #43
+// LeetCode #43 (Multiply Strings).
 
 // Given two non-negative integers num1 and num2 represented as strings, 
 // return the product of num1 and num2.
@@ -20,10 +20,13 @@ public class MultiplyStrings {
 			}
 		}
 		StringBuilder sb = new StringBuilder();
-		for (int i : result)
-			if (sb.length() != 0 || i != 0) {
-				sb.append(i);
+		for (int i = 0; i < result.length; i++) {
+			if (sb.length() == 0 && i == 0) {
+				continue;
 			}
+			sb.append(result[i]);
+		}
+
 		return sb.length() == 0 ? "0" : sb.toString();
 	}
 
