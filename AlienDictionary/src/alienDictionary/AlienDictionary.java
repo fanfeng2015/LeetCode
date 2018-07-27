@@ -27,6 +27,7 @@ public class AlienDictionary {
 		return topologicalSort(incomingDegrees, adjacencyList, count);
 	}
 
+	// returns the number of unique characters (need to check if graph is DAG)
 	private int constructGraph(String[] words, int[] incomingDegrees, List<Set<Character>> adjacencyList) {
 		int count = 0;
 		for (int i = 0; i < NUM_LETTERS; i++) {
@@ -77,4 +78,6 @@ public class AlienDictionary {
 		return sb.length() == count ? sb.toString() : "";
 	}
 
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
