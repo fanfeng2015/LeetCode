@@ -2,17 +2,17 @@ package minimumDepthOfBinaryTree;
 
 import java.util.LinkedList;
 
-// LeetCode #111
+// LeetCode #111 (Minimum Depth of Binary Tree).
 
 // Given a binary tree, find its minimum depth.
+
 // The minimum depth is the number of nodes along the shortest path 
 // from the root node down to the nearest leaf node.
 
 public class MinimumDepthOfBinaryTree {
 
-	// Solution 1: DFS (recursion)
+	// recursive
 	public int minDepth(TreeNode root) {
-		// base case
 		if (root == null) {
 			return 0;
 		}
@@ -24,9 +24,8 @@ public class MinimumDepthOfBinaryTree {
 	// Time complexity is O(n).
 	// Space complexity is O(n), when binary tree is highly unbalanced.
 
-	// Solution 2: BFS (queue)
+	// BFS (queue)
 	public int minDepth2(TreeNode root) {
-		// corner case
 		if (root == null) {
 			return 0;
 		}
