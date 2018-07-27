@@ -1,6 +1,6 @@
 package searchInsertPosition;
 
-// LeetCode #35
+// LeetCode #35 (Search Insert Position).
 
 // Given a sorted array and a target value, return the index if the target 
 // is found. If not, return the index where it would be if it were inserted in order.
@@ -19,7 +19,6 @@ public class SearchInsertPosition {
 				left = mid;
 			}
 		}
-		// left >= right - 1
 		return nums[right] < target ? right + 1 : nums[left] < target ? left + 1 : left;
 	}
 
