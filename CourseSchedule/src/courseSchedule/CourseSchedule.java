@@ -35,7 +35,6 @@ public class CourseSchedule {
 	}
 
 	private int topologicalOrder(int[] incomingDegrees, List<List<Integer>> adjacentList) {
-		int count = 0;
 		int numCourses = incomingDegrees.length;
 		LinkedList<Integer> queue = new LinkedList<>();
 		for (int i = 0; i < numCourses; i++) {
@@ -43,9 +42,10 @@ public class CourseSchedule {
 				queue.offerFirst(i);
 			}
 		}
+		int count = 0;
 		while (!queue.isEmpty()) {
-			count++;
 			int cur = queue.pollLast();
+			count++;
 			for (int neighbor : adjacentList.get(cur)) {
 				incomingDegrees[neighbor]--;
 				if (incomingDegrees[neighbor] == 0) {
