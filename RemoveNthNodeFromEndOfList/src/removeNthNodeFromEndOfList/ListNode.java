@@ -1,4 +1,4 @@
-package removeNthNodeFromEndOfLinkedList;
+package removeNthNodeFromEndOfList;
 
 public class ListNode {
 	int val;

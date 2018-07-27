@@ -1,12 +1,12 @@
-package removeNthNodeFromEndOfLinkedList;
+package removeNthNodeFromEndOfList;
 
-// LeetCode #19 (Remove Nth Node from End of Linked List).
+//LeetCode #19 (Remove Nth Node from End of Linked List).
 
-// Given a linked list, remove the nth node from the end of list and return its head.
+//Given a linked list, remove the nth node from the end of list and return its head.
 
-// Given n will always be valid. Try to do this in one pass.
+//Given n will always be valid. Try to do this in one pass.
 
-public class RemoveNthNodeFromEndOfLinkedList {
+public class RemoveNthNodeFromEndOfList {
 
 	public ListNode removeNthFromEnd(ListNode head, int n) {
 		ListNode dummy = new ListNode(0);
