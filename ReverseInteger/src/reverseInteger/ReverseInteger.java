@@ -1,6 +1,6 @@
 package reverseInteger;
 
-// LeetCode #7
+// LeetCode #7 (Reverse Integer).
 
 // Reverse digits of an integer, return 0 when the reversed integer overflows
 
