@@ -1,6 +1,6 @@
 package containerWithMostWater;
 
-// LeetCode #11
+// LeetCode #11 (Container with Most Water).
 
 // Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai).
 // n vertical lines are drawn such that the two end points of line i is at (i, ai) and (i, 0). 
@@ -10,19 +10,7 @@ package containerWithMostWater;
 
 public class ContainerWithMostWater {
 
-	// Solution 1: O(n^2) time, O(1) space
 	public int maxArea(int[] height) {
-		int max = Integer.MIN_VALUE;
-		for (int i = 0; i < height.length - 1; i++) {
-			for (int j = i + 1; j < height.length; j++) {
-				max = Math.max(max, Math.min(height[i], height[j]) * (j - i));
-			}
-		}
-		return max;
-	}
-
-	// Solution 2:
-	public int maxArea2(int[] height) {
 		int max = 0;
 		int left = 0, right = height.length - 1;
 		while (left < right) {
