@@ -1,6 +1,6 @@
 package zigZagConversion;
 
-// LeetCode #6
+// LeetCode #6 (Zig Zag Conversion).
 
 // The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows 
 // as "PAHNAPLSIIGYIR".
@@ -16,17 +16,17 @@ public class ZigZagConversion {
 			sbs[i] = new StringBuilder();
 		}
 		boolean downwards = true;
-		int index = 0; // indicates which line
+		int line = 0; // indicates line
 		for (int i = 0; i < s.length(); i++) {
-			sbs[index].append(s.charAt(i));
-			if (index == 0) {
+			sbs[line].append(s.charAt(i));
+			if (line == 0) {
 				downwards = true;
-				index++;
-			} else if (index == numRows - 1) {
+				line++;
+			} else if (line == numRows - 1) {
 				downwards = false;
-				index--;
+				line--;
 			} else {
-				index = downwards ? index + 1 : index - 1;
+				line = downwards ? line + 1 : line - 1;
 			}
 		}
 		for (int i = 1; i < numRows; i++) {
