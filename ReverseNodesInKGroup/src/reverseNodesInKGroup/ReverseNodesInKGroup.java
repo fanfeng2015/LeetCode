@@ -1,10 +1,17 @@
 package reverseNodesInKGroup;
 
-// LeetCode #25
+// LeetCode #25 (Reverse Nodes in k-Group).
+
+// Given a linked list, reverse the nodes of a linked list k at a time and return
+// its modified list.
+
+// k is a positive integer and is less than or equal to the length of the linked 
+// list. If the number of nodes is not a multiple of k then left-out nodes in the
+// end should remain as it is.
 
 public class ReverseNodesInKGroup {
 
-	// Solution 1: iterative solution
+	// iterative
 	public ListNode reverseKGroup(ListNode head, int k) {
 		ListNode dummy = new ListNode(0), cur = dummy;
 		while (head != null) {
@@ -27,8 +34,7 @@ public class ReverseNodesInKGroup {
 		return dummy.next;
 	}
 
-	// iteratively reverse the partial linked list, starting from head, and
-	// ending at tail
+	// iteratively reverse the partial linked list, from head to tail
 	private ListNode reverse(ListNode head, ListNode tail) {
 		ListNode left = head, right = tail.next, prev = null, next = null;
 		while (left != right) {
@@ -43,7 +49,7 @@ public class ReverseNodesInKGroup {
 	// Time complexity is O(n).
 	// Space complexity is O(1).
 
-	// Solution 2: recursive solution
+	// recursive
 	public ListNode reverseKGroup2(ListNode head, int k) {
 		ListNode cur = head;
 		int count = 0;
@@ -51,7 +57,6 @@ public class ReverseNodesInKGroup {
 			cur = cur.next;
 			count++;
 		}
-		// recursive rule
 		if (count == k) {
 			cur = reverseKGroup2(cur, k);
 			while (count > 0) {
@@ -63,10 +68,9 @@ public class ReverseNodesInKGroup {
 			}
 			head = cur;
 		}
-		// base case
 		return head;
 	}
 
 	// Time complexity is O(n).
-	// Space complexity is O(n/k).
+	// Space complexity is O(n/k), because of call-stack.
 }
