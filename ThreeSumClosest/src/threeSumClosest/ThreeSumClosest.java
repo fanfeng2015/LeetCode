@@ -16,9 +16,8 @@ public class ThreeSumClosest {
 		if (nums.length <= 3) {
 			return Arrays.stream(nums).sum();
 		}
-		int result = 0;
 		Arrays.sort(nums);
-		result = nums[0] + nums[1] + nums[2];
+		int result = nums[0] + nums[1] + nums[2];
 		for (int i = 0; i < nums.length - 2; i++) {
 			if (i > 0 && nums[i] == nums[i - 1]) {
 				continue;
@@ -42,5 +41,5 @@ public class ThreeSumClosest {
 	}
 
 	// Time complexity is O(n^2).
-	// Space complexity is O(log(n)), because of quick sort (for primitive types).
+	// Space complexity is O(n), because of quick sort (for primitive types).
 }
