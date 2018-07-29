@@ -1,6 +1,6 @@
 package firstMissingPositive;
 
-// LeetCode #41
+// LeetCode #41 (First Missing Positive).
 
 // Given an unsorted integer array, find the first missing positive integer.
 
@@ -11,7 +11,7 @@ public class FirstMissingPositive {
 		int n = nums.length;
 		for (int i = 0; i < n; i++) {
 			int x = nums[i];
-			while (0 < x && x <= n && nums[x - 1] != x) {
+			while (0 < x && x <= n && nums[x - 1] != x) { // swap nums[i] and nums[x - 1]
 				int temp = nums[x - 1];
 				nums[x - 1] = x;
 				x = temp;
