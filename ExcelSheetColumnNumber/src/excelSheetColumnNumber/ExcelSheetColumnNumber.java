@@ -1,8 +1,9 @@
 package excelSheetColumnNumber;
 
-// LeetCode #171
+// LeetCode #171 (Excel Sheet Column Number).
 
-// Given a column title as appear in an Excel sheet, return its corresponding column number.
+// Given a column title as appear in an Excel sheet, return its 
+// corresponding column number.
 
 public class ExcelSheetColumnNumber {
 
