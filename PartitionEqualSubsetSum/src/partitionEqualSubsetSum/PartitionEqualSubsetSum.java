@@ -29,4 +29,9 @@ public class PartitionEqualSubsetSum {
 
 	// Time complexity is O(n*sum).
 	// Space complexity is O(n*sum), but obviously can be optimized to O(sum).
+
+	// Follow up:
+	// 1. Return the minimum difference of the sums of the two subsets.
+	// 2. Divide the two subsets to be about equal size of each other (differ by at
+	//    most one).
 }
