@@ -27,4 +27,7 @@ public class WiggleSort {
 
 	// Time complexity is O(n).
 	// Space complexity is O(1).
+
+	// Follow up: LeetCode #324 (Wiggle Sort).
+	// Reorder it in-place such that nums[0] < nums[1] > nums[2] < nums[3] > ...
 }
