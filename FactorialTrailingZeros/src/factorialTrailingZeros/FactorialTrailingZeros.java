@@ -1,6 +1,6 @@
 package factorialTrailingZeros;
 
-// LeetCode #172
+// LeetCode #172 (Factorial Trailing Zeros).
 
 // Given an integer n, return the number of trailing zeroes in n!.
 
