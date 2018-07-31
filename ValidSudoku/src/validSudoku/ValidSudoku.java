@@ -1,16 +1,18 @@
 package validSudoku;
 
-// LeetCode #36
+// LeetCode #36 (Valid Sudoku).
 
 // Determine if a Sudoku is valid.
+
 // The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
 
 public class ValidSudoku {
 
+	private static int n = 9;
+
 	public boolean isValidSudoku(char[][] board) {
-		int m = board.length, n = board[0].length; // both are 9
-		boolean[][] rows = new boolean[m][n], cols = new boolean[m][n], blocks = new boolean[m][n];
-		for (int i = 0; i < m; i++) {
+		boolean[][] rows = new boolean[n][n], cols = new boolean[n][n], blocks = new boolean[n][n];
+		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				int k = (i / 3) * 3 + j / 3;
 				if (board[i][j] != '.') {
@@ -25,4 +27,6 @@ public class ValidSudoku {
 		return true;
 	}
 
+	// Time complexity is O(n^2).
+	// Space complexity is O(n^2).
 }
