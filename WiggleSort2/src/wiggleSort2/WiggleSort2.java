@@ -1,18 +1,17 @@
 package wiggleSort2;
 
-// LeetCode #324
+// LeetCode #324 (Wiggle Sort II).
 
 // Given an unsorted array nums, reorder it such that 
 // nums[0] < nums[1] > nums[2] < nums[3]....
 
 public class WiggleSort2 {
 
-	// https://discuss.leetcode.com/topic/41464/step-by-step-explanation-of-index-mapping-in-java
 	public void wiggleSort(int[] nums) {
 		int median = select(nums, nums.length / 2);
 		int i = 0, j = 0, k = nums.length - 1;
 		while (j <= k) {
-			// rainbow sort (LeetCode #75, sort colors)
+			// LeetCode #75 (Sort Colors) / rainbow sort 
 			if (nums[newIndex(j, nums.length)] > median) {
 				swap(nums, newIndex(i++, nums.length), newIndex(j++, nums.length));
 			} else if (nums[newIndex(i, nums.length)] == median) {
