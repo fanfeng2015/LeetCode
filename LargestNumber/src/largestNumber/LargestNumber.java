@@ -3,7 +3,7 @@ package largestNumber;
 import java.util.Arrays;
 import java.util.Comparator;
 
-// LeetCode #179
+// LeetCode #179 (Largest Number).
 
 // Given a list of non negative integers, arrange them such that they form the largest number.
 
@@ -17,14 +17,14 @@ public class LargestNumber {
 		Arrays.sort(strings, new Comparator<String>() {
 			@Override
 			public int compare(String one, String two) {
-				return (one + two).compareTo(two + one);
+				return (two + one).compareTo(one + two);
 			}
 		});
-		if (strings[strings.length - 1].charAt(0) == '0') {
+		if (strings[0].charAt(0) == '0') {
 			return "0";
 		}
 		StringBuilder sb = new StringBuilder();
-		for (int i = strings.length - 1; i >= 0; i--) {
+		for (int i = 0; i < strings.length; i++) {
 			sb.append(strings[i]);
 		}
 		return sb.toString();
