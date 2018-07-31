@@ -30,7 +30,6 @@ public class LargestNumber {
 		return sb.toString();
 	}
 
-	// Time complexity is
-	// O(n * log(n)) + O(k + 2*k + ... + n*k) = O(n * log(n)) + O(n^2 * k).
-	// Space complexity is O(n), because Java uses merge sort for Object types.
+	// Time complexity is O(n*log(n)) + O(n*k).
+	// Space complexity is O(n), because of merge sort (for non-primitive types).
 }
