@@ -48,6 +48,9 @@ public class PalindromePartitioning {
 		}
 	}
 
-	// Time complexity is O(n^2) + O(2^n)?
+	// Time complexity is O(n^2) + O(n^n).
 	// Space complexity is O(n^2).
+
+	// Follow up :
+	// LeetCode #132 (Palindrome Partitioning II) / Minimum Cuts for Palindromes.
 }
