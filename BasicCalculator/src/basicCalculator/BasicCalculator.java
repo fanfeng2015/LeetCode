@@ -15,7 +15,7 @@ public class BasicCalculator {
 
 	public int calculate(String s) {
 		int result = 0;
-		int sign = 1, num = 0; // num is the current number between any two operators
+		int sign = 1, num = 0;
 		LinkedList<Integer> stack = new LinkedList<>();
 		for (int i = 0; i < s.length(); i++) {
 			if (Character.isDigit(s.charAt(i))) {
@@ -26,7 +26,7 @@ public class BasicCalculator {
 				num = 0;
 			} else if (s.charAt(i) == '-') {
 				result += sign * num;
-				sign = 1;
+				sign = -1;
 				num = 0;
 			} else if (s.charAt(i) == '(') { // num must equal 0
 				stack.offerLast(result);
@@ -39,7 +39,7 @@ public class BasicCalculator {
 				num = 0;
 			}
 		}
-		return result;
+		return result + sign * num;
 	}
 
 	// Time complexity is O(n).
