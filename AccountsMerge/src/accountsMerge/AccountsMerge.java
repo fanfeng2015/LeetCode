@@ -36,7 +36,7 @@ public class AccountsMerge {
 		for (String email : graph.keySet()) {
 			if (visited.add(email)) { // a new group
 				queue.offerFirst(email);
-				List<String> group = new LinkedList<String>(); // O(1) time for add(..., ...)
+				List<String> group = new LinkedList<String>(); // O(1) time for add(0, ...)
 				while (!queue.isEmpty()) {
 					String cur = queue.pollLast();
 					group.add(cur);
