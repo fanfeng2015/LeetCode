@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class AccountsMerge {
 
-	// [ John: [a, b, f], [John, c], [John: a, d], [Mary: e] ]
+	// [ John: [a, b, f], [John: c], [John: a, d], [Mary: e] ]
 	public List<List<String>> accountsMerge(List<List<String>> accounts) {
 		Map<String, String> owners = new HashMap<>(); // { email: name }
 		// { a: [a, b, f, d], b: [a], f: [a], c: [c], d: [a], e: [e] }
