@@ -50,4 +50,7 @@ public class NextClosestTime {
 	// There are at most 4 * 4 * 4 * 4 = 256 possible times.
 	// Time complexity is O(1).
 	// Space complexity is O(1).
+	
+	// How about returning the previous closest time?
+	// int newDiff = Math.floorMod(start - (60 * hour + minute), 24 * 60); // floorMod
 }
